@@ -17,7 +17,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="396dp" />
+        app:layout_constraintGuide_end="16dp" />
 
     <ImageView
         android:id="@+id/banner"
@@ -36,7 +36,6 @@
         android:layout_height="63dp"
         android:background="@drawable/round_outline"
         android:backgroundTint="#EC1B1B"
-        android:layout_marginRight="10dp"
         app:layout_constraintBottom_toBottomOf="@id/banner"
         app:layout_constraintEnd_toStartOf="@id/guideline_right"
         app:layout_constraintTop_toBottomOf="@id/banner"
