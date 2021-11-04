@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="16dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="396dp" />
+
+    <ImageView
+        android:id="@+id/banner"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/android_studio_banner"
+        app:layout_constraintDimensionRatio="16:9"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageButton
+        android:id="@+id/star_btn"
+        android:layout_width="63dp"
+        android:layout_height="63dp"
+        android:background="@drawable/round_outline"
+        android:backgroundTint="#EC1B1B"
+        android:layout_marginRight="10dp"
+        app:layout_constraintBottom_toBottomOf="@id/banner"
+        app:layout_constraintEnd_toStartOf="@id/guideline_right"
+        app:layout_constraintTop_toBottomOf="@id/banner"
+        app:srcCompat="@drawable/ic_star" />
+
+
+    <ImageButton
+        android:id="@+id/ic_phone"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:src="@drawable/ic_phone"
+        android:layout_marginTop="54dp"
+        app:layout_constraintStart_toEndOf="@id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@id/star_btn" />
+
+    <TextView
+        android:id="@+id/google_voice_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="21dp"
+        android:text="(650)132-1234"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@id/ic_phone"
+        app:layout_constraintTop_toTopOf="@id/ic_phone" />
+
+    <TextView
+        android:id="@+id/google_voice_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Google voice"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        app:layout_constraintTop_toBottomOf="@id/google_voice_num"
+        app:layout_constraintStart_toStartOf="@id/google_voice_num"/>
+
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:src="@drawable/ic_msg"
+        app:layout_constraintBottom_toBottomOf="@id/mobile"
+        app:layout_constraintEnd_toEndOf="@+id/star_btn"
+        app:layout_constraintStart_toStartOf="@id/star_btn"
+        app:layout_constraintTop_toTopOf="@id/mobile" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:src="@drawable/ic_msg"
+        app:layout_constraintBottom_toBottomOf="@id/google_voice_num"
+        app:layout_constraintEnd_toEndOf="@+id/star_btn"
+        app:layout_constraintStart_toStartOf="@id/star_btn"
+        app:layout_constraintTop_toTopOf="@id/google_voice_num" />
+
+    <TextView
+        android:id="@+id/mobile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="(650)452-9454"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@id/google_voice_num"
+        app:layout_constraintTop_toBottomOf="@id/google_voice_num" />
+
+    <TextView
+        android:id="@+id/mobile_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mobile"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        app:layout_constraintTop_toBottomOf="@id/mobile"
+        app:layout_constraintStart_toStartOf="@id/mobile"/>
+
+    <View
+        android:id="@+id/border"
+        android:layout_width="0dp"
+        android:layout_height="3dp"
+        android:layout_marginTop="25dp"
+        android:background="#ECC2FA"
+        app:layout_constraintEnd_toStartOf="@id/guideline_right"
+        app:layout_constraintStart_toStartOf="@id/mobile_txt"
+        app:layout_constraintTop_toBottomOf="@id/mobile_txt" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_email"
+        app:layout_constraintStart_toStartOf="@id/ic_phone"
+        app:layout_constraintEnd_toEndOf="@id/ic_phone"
+        app:layout_constraintTop_toTopOf="@id/email"/>
+
+    <TextView
+        android:id="@+id/email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="studio@android.com"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@id/google_voice_num"
+        app:layout_constraintTop_toBottomOf="@id/border" />
+
+    <TextView
+        android:id="@+id/email_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Work"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        app:layout_constraintTop_toBottomOf="@id/email"
+        app:layout_constraintStart_toStartOf="@id/email"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
