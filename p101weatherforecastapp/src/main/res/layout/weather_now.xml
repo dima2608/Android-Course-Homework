@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:background="@drawable/gradient_gray">
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="110dp"
+        android:background="@drawable/corner_radius_16"
+        android:textColor="@color/white_gray"
+        android:textSize="@dimen/text_size_small"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Субота, 18 вересня" />
+
+    <ImageView
+        android:id="@+id/ic_weather"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/date"
+        tools:ignore="ContentDescription"
+        tools:src="@drawable/ic_partly_cloudy_24px" />
+
+    <TextView
+        android:id="@+id/temperature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="6dp"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_big"
+        app:layout_constraintStart_toEndOf="@id/ic_weather"
+        app:layout_constraintTop_toBottomOf="@id/date"
+        tools:text="14" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="12dp"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintStart_toEndOf="@id/temperature"
+        app:layout_constraintTop_toTopOf="@id/temperature"
+        tools:text="°" />
+
+    <TextView
+        android:id="@+id/cloudiness"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="82dp"
+        android:layout_marginTop="6dp"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_small"
+        app:layout_constraintStart_toEndOf="@id/ic_weather"
+        app:layout_constraintTop_toBottomOf="@id/temperature"
+        tools:text="Мінлива хмарність" />
+
+    <TextView
+        android:id="@+id/real_feel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_small"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cloudiness"
+        tools:text="20°/11°, відчувається як 15°C" />
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="10dp"
+        android:layout_marginStart="24dp"
+        android:background="@color/rectangle_separator"
+        app:layout_constraintBottom_toBottomOf="@id/real_feel"
+        app:layout_constraintStart_toEndOf="@id/real_feel"
+        app:layout_constraintTop_toTopOf="@id/real_feel" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_small"
+        app:layout_constraintStart_toEndOf="@id/real_feel"
+        app:layout_constraintTop_toBottomOf="@id/cloudiness"
+        tools:text="Вітер 9 км/год, півд-зах" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
