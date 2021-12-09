@@ -23,9 +23,8 @@
         android:id="@+id/ic_weather"
         android:layout_width="120dp"
         android:layout_height="120dp"
-        android:layout_marginStart="24dp"
         android:layout_marginTop="4dp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@id/real_feel"
         app:layout_constraintTop_toBottomOf="@id/date"
         tools:ignore="ContentDescription"
         tools:src="@drawable/ic_partly_cloudy_24px" />
@@ -34,11 +33,11 @@
         android:id="@+id/temperature"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="6dp"
+        android:layout_marginStart="-6dp"
+        android:layout_marginTop="4dp"
         android:textColor="@color/white"
         android:textSize="@dimen/text_size_big"
-        app:layout_constraintStart_toEndOf="@id/ic_weather"
+        app:layout_constraintStart_toStartOf="@id/cloudiness"
         app:layout_constraintTop_toBottomOf="@id/date"
         tools:text="14" />
 
@@ -57,11 +56,11 @@
         android:id="@+id/cloudiness"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="82dp"
-        android:layout_marginTop="6dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
         android:textColor="@color/white"
         android:textSize="@dimen/text_size_small"
-        app:layout_constraintStart_toEndOf="@id/ic_weather"
+        app:layout_constraintStart_toStartOf="@id/wind"
         app:layout_constraintTop_toBottomOf="@id/temperature"
         tools:text="Мінлива хмарність" />
 
@@ -69,31 +68,33 @@
         android:id="@+id/real_feel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="22dp"
         android:layout_marginTop="20dp"
         android:textColor="@color/white"
         android:textSize="@dimen/text_size_small"
+        app:layout_constraintEnd_toStartOf="@id/border"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cloudiness"
         tools:text="20°/11°, відчувається як 15°C" />
 
     <View
+        android:id="@+id/border"
         android:layout_width="1dp"
         android:layout_height="10dp"
-        android:layout_marginStart="24dp"
         android:background="@color/rectangle_separator"
         app:layout_constraintBottom_toBottomOf="@id/real_feel"
+        app:layout_constraintEnd_toStartOf="@id/wind"
         app:layout_constraintStart_toEndOf="@id/real_feel"
         app:layout_constraintTop_toTopOf="@id/real_feel" />
 
     <TextView
+        android:id="@+id/wind"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
         android:layout_marginTop="20dp"
         android:textColor="@color/white"
         android:textSize="@dimen/text_size_small"
-        app:layout_constraintStart_toEndOf="@id/real_feel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/border"
         app:layout_constraintTop_toBottomOf="@id/cloudiness"
         tools:text="Вітер 9 км/год, півд-зах" />
 
