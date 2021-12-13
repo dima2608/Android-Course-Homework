@@ -49,7 +49,7 @@
         android:textSize="24sp"
         app:layout_constraintStart_toEndOf="@id/temperature"
         app:layout_constraintTop_toTopOf="@id/temperature"
-        tools:text="°" />
+        android:text="@string/degrees"/>
 
     <TextView
         android:id="@+id/cloudiness"
@@ -68,12 +68,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:textColor="@color/white"
+        android:textColor="@color/light_white"
         android:textSize="@dimen/text_size_small"
         app:layout_constraintEnd_toStartOf="@id/border"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cloudiness"
-        tools:text="20°/11°, відчувається як 15°C" />
+        tools:text="відчувається як 15°C" />
 
     <View
         android:id="@+id/border"
@@ -90,7 +90,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:textColor="@color/white"
+        android:textColor="@color/light_white"
         android:textSize="@dimen/text_size_small"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/border"

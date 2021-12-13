@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">p101WeatherForecastApp</string>
+    <string name="degrees">°</string>
 </resources>
