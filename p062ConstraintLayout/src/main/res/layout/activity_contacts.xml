@@ -57,7 +57,7 @@
         android:id="@+id/google_voice_num"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="21dp"
+        android:layout_marginStart="22dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@id/ic_phone"
@@ -79,7 +79,7 @@
         android:background="@null"
         android:src="@drawable/ic_msg"
         app:layout_constraintBottom_toBottomOf="@id/mobile"
-        app:layout_constraintEnd_toEndOf="@+id/star_btn"
+        app:layout_constraintEnd_toEndOf="@id/star_btn"
         app:layout_constraintStart_toStartOf="@id/star_btn"
         app:layout_constraintTop_toTopOf="@id/mobile"
         tools:ignore="ContentDescription" />
@@ -91,7 +91,7 @@
         android:background="@null"
         android:src="@drawable/ic_msg"
         app:layout_constraintBottom_toBottomOf="@id/google_voice_num"
-        app:layout_constraintEnd_toEndOf="@+id/star_btn"
+        app:layout_constraintEnd_toEndOf="@id/star_btn"
         app:layout_constraintStart_toStartOf="@id/star_btn"
         app:layout_constraintTop_toTopOf="@id/google_voice_num"
         tools:ignore="ContentDescription" />
