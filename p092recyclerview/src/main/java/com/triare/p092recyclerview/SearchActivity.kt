@@ -12,8 +12,11 @@ class SearchActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
 
-        val recyclerViewSearch = findViewById<RecyclerView>(R.id.recycler_view_search)
+        initRecyclerView()
+    }
 
+    private fun initRecyclerView() {
+        val recyclerViewSearch = findViewById<RecyclerView>(R.id.recycler_view_search)
         recyclerViewSearch.layoutManager = StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL)
         recyclerViewSearch.adapter = SearchAdaptor(UserStorage.random(this))
     }

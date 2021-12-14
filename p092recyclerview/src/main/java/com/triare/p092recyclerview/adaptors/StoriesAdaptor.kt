@@ -30,13 +30,16 @@ class StoriesAdaptor(private val items: List<User>) : RecyclerView.Adapter<Stori
         private val name = itemView.findViewById<TextView>(R.id.user_name)
 
         fun bind(user: User) {
+            setUserAvatar(user)
+            name.text = user.name
+        }
+
+        private fun setUserAvatar(user: User) {
             Glide.with(itemView.context)
                 .asBitmap()
                 .load(user.avatar)
                 .circleCrop()
                 .into(avatar)
-
-            name.text = user.name
         }
     }
 }

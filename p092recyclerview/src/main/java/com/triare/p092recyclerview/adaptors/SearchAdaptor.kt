@@ -4,7 +4,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.triare.p092recyclerview.R
@@ -30,6 +29,10 @@ class SearchAdaptor(private val items: List<User>): RecyclerView.Adapter<SearchA
         private val picture = itemView.findViewById<ImageView>(R.id.picture)
 
         fun bind(user: User) {
+            setUserPics(user)
+        }
+
+        private fun setUserPics(user: User) {
             Glide.with(itemView.context)
                 .asBitmap()
                 .load(user.avatar)

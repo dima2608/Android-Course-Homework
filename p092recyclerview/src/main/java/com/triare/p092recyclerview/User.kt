@@ -8,3 +8,5 @@ data class User (
     val massage: String,
     val isOnline: Boolean
 )
+
+val ic_avatar = "https://1.bp.blogspot.com/-wcGBBlbjSgY/XyOHzJP5hmI/AAAAAAAAFXA/pj-_e6iUCYUXaBqFYFnaLBJ2Z3-A6hz3ACLcBGAsYHQ/s750/2.jpg"

@@ -32,19 +32,24 @@ class FeedAdaptor(private val items: List<User>): RecyclerView.Adapter<FeedAdapt
         private val feed = itemView.findViewById<ImageView>(R.id.feed)
 
         fun bind(user: User) {
-            Glide.with(itemView.context)
-                .asBitmap()
-                .load(user.avatar)
-                .circleCrop()
-                .into(avatar)
-
+            setAvatar(user)
             name.text = user.name
+            setFeed(user)
+        }
 
+        private fun setFeed(user: User) {
             Glide.with(itemView.context)
                 .asBitmap()
                 .load(user.feed)
                 .into(feed)
         }
-    }
 
+        private fun setAvatar(user: User) {
+            Glide.with(itemView.context)
+                .asBitmap()
+                .load(user.avatar)
+                .circleCrop()
+                .into(avatar)
+        }
+    }
 }

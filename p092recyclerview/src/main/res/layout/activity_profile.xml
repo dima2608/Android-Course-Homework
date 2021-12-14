@@ -14,46 +14,49 @@
         android:scaleType="centerCrop"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription"
         tools:src="@tools:sample/avatars[12]" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:paddingLeft="16dp"
+        android:paddingStart="16dp"
         android:text="@string/lizaaa"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@id/user_avatar"
-        app:layout_constraintTop_toTopOf="@id/user_avatar" />
+        app:layout_constraintTop_toTopOf="@id/user_avatar"
+        tools:ignore="RtlSymmetry" />
 
     <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:lines="3"
         android:ellipsize="end"
-        android:text="jest tekstem stosowanym jako przykładowy wypełniacz w przemyśle poligraficznym. Został po raz pierwszy użyty w XV w. przez nieznanego drukarza do wypełnienia tekstem próbnej książki."
+        android:lines="3"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/textView"
         app:layout_constraintTop_toBottomOf="@id/textView"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        tools:text="@string/jest_tekstem_stosowanym_jako_przyk_adowy_wype_niacz_w_przemy_le_poligraficznym_zosta_po_raz_pierwszy_u_yty_w_xv_w_przez_nieznanego_drukarza_do_wype_nienia_tekstem_pr_bnej_ksi_ki" />
+
     <View
         android:id="@+id/border"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@android:color/darker_gray"
         android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@id/user_avatar"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:background="@android:color/darker_gray"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/user_avatar" />
 
 
     <TextView
         android:id="@+id/publication"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="5dp"
-        android:drawablePadding="5dp"
+        android:drawablePadding="6dp"
+        android:padding="6dp"
         android:text="@string/publication"
         android:textStyle="bold"
         app:drawableStartCompat="@drawable/ic_baseline_grid"

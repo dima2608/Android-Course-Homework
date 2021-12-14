@@ -3,7 +3,6 @@ package com.triare.p092recyclerview
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.MediaStore
 import android.widget.ImageView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -20,11 +19,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val bottomNavBtn = listOf<ImageView>(
-            findViewById(R.id.btn_search),
-            findViewById(R.id.btn_chat),
-            findViewById(R.id.btn_profile),
-        )
+        initUi()
+
+    }
+
+    private fun initUi() {
+        initRecyclerView()
+        bottomNav()
+    }
+
+    private fun initRecyclerView() {
         val recyclerViewStories = findViewById<RecyclerView>(R.id.recycler_view_stories)
         val recyclerViewFeed = findViewById<RecyclerView>(R.id.recycler_view_feed)
 
@@ -33,8 +37,14 @@ class MainActivity : AppCompatActivity() {
 
         recyclerViewFeed.layoutManager = LinearLayoutManager(this)
         recyclerViewFeed.adapter = FeedAdaptor(UserStorage.random(this))
+    }
 
-
+    private fun bottomNav() {
+        val bottomNavBtn = listOf<ImageView>(
+            findViewById(R.id.btn_search),
+            findViewById(R.id.btn_chat),
+            findViewById(R.id.btn_profile),
+        )
         bottomNavBtn.forEach { btn ->
             btn.setOnClickListener{
                 when(btn.id){
@@ -53,8 +63,6 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
-
-
     }
 
 }

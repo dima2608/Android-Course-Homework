@@ -10,21 +10,33 @@ import com.triare.p092recyclerview.adaptors.ProfileAdaptor
 import com.triare.p092recyclerview.storage.UserStorage
 
 class ProfileActivity : AppCompatActivity() {
+    private val avatar: ImageView? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
+        val avatar = R.id.user_avatar
+        initUi()
+    }
 
+    private fun initRecyclerView() {
         val recyclerViewProfile = findViewById<RecyclerView>(R.id.recycler_view_profile)
-        val avatar = findViewById<ImageView>(R.id.user_avatar)
-
         recyclerViewProfile.layoutManager = GridLayoutManager(this,3)
         recyclerViewProfile.adapter = ProfileAdaptor(UserStorage.random(this))
+    }
 
+    private fun initUi() {
+        setAvatar()
+        initRecyclerView()
+    }
 
-        Glide.with(applicationContext)
-            .asBitmap()
-            .load("https://1.bp.blogspot.com/-wcGBBlbjSgY/XyOHzJP5hmI/AAAAAAAAFXA/pj-_e6iUCYUXaBqFYFnaLBJ2Z3-A6hz3ACLcBGAsYHQ/s750/2.jpg")
-            .circleCrop()
-            .into(avatar)
+    private fun setAvatar() {
+        if (avatar != null) {
+            Glide.with(applicationContext)
+                .asBitmap()
+                .load(ic_avatar)
+                .circleCrop()
+                .into(avatar)
+        }
     }
 }

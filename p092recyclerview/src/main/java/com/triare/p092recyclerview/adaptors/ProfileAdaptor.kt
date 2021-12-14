@@ -4,7 +4,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.triare.p092recyclerview.R
@@ -31,13 +30,14 @@ class ProfileAdaptor(private val items: List<User>): RecyclerView.Adapter<Profil
 
 
         fun bind(user: User) {
+            setUserPic(user)
+        }
 
+        private fun setUserPic(user: User) {
             Glide.with(itemView.context)
                 .asBitmap()
                 .load(user.avatar)
                 .into(userPics)
-
-
         }
     }
 

@@ -32,12 +32,21 @@ class DirectAdaptor(private val items: List<User>): RecyclerView.Adapter<DirectA
         private val message = itemView.findViewById<TextView>(R.id.message)
 
         fun bind(user: User) {
+            setAvatar(user)
+            isUserOnline(user)
+            message.text = user.massage
+            name.text = user.name
+        }
+
+        private fun setAvatar(user: User) {
             Glide.with(itemView.context)
                 .asBitmap()
                 .load(user.avatar)
                 .circleCrop()
                 .into(avatar)
+        }
 
+        private fun isUserOnline(user: User) {
             when(user.isOnline){
                 true -> {
                     isOnline.text = "Online"
@@ -46,9 +55,6 @@ class DirectAdaptor(private val items: List<User>): RecyclerView.Adapter<DirectA
                     isOnline.text = "Offline"
                 }
             }
-
-            message.text = user.massage
-            name.text = user.name
         }
     }
 }

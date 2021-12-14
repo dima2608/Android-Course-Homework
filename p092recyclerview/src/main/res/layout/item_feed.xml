@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/ic_user_prof_pic"
@@ -11,9 +11,10 @@
         android:layout_height="39dp"
         android:layout_margin="16dp"
         android:scaleType="centerCrop"
-        tools:src="@tools:sample/avatars[12]"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription"
+        tools:src="@tools:sample/avatars[12]" />
 
     <TextView
         android:id="@+id/name"
@@ -34,19 +35,20 @@
         android:layout_marginTop="16dp"
         android:scaleType="centerCrop"
         android:src="@drawable/ic_baseline_home_24"
-        app:layout_constraintTop_toBottomOf="@id/ic_user_prof_pic"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/ic_user_prof_pic"
+        tools:ignore="ContentDescription" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:text="be the first who like it"
+        android:drawablePadding="9dp"
+        app:drawableStartCompat="@drawable/ic_baseline_diamond"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/feed"
-        app:drawableStartCompat="@drawable/ic_baseline_diamond"
-        android:drawablePadding="9dp"/>
+        tools:text="be the first who like it" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
