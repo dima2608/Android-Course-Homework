@@ -12,7 +12,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.triare.p101weatherforecastapp.R
-import com.triare.p101weatherforecastapp.WeatherViewModel
 import com.triare.p101weatherforecastapp.adaptor.HourlyWeatherAdaptor
 import com.triare.p101weatherforecastapp.repository.WeatherRepository
 
