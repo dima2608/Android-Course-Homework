@@ -15,6 +15,11 @@ class GetUserName : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_get_user_name)
 
+        initUi()
+
+    }
+
+    private fun initUi() {
         val userName = findViewById<TextInputLayout>(R.id.get_user_name).editText?.text
         val btnSave = findViewById<TextView>(R.id.btn_save_user_name)
         val btnGoBack = findViewById<ImageButton>(R.id.btn_go_back_user_name)
@@ -31,8 +36,8 @@ class GetUserName : AppCompatActivity() {
                 finish()
             }
         }
-
     }
+
     companion object  {
         const val REQUEST_USER_NAME = 1
     }

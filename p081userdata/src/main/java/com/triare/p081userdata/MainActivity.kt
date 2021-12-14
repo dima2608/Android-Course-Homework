@@ -1,7 +1,5 @@
 package com.triare.p081userdata
 
-
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Bitmap
 import android.os.Build
@@ -18,40 +16,49 @@ import java.lang.Error
 
 class MainActivity : AppCompatActivity() {
 
-    @SuppressLint("UseCompatLoadingForDrawables")
     private val startForResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult())
     { result: ActivityResult ->
         when(result.resultCode) {
-
             REQUEST_USER_PIC -> {
-                if (result.data?.data == null) {
-                    val imageBitmap = result.data?.extras?.get("data") as? Bitmap
-                    findViewById<ImageView>(R.id.prof_pic).setImageBitmap(imageBitmap)
-                } else {
-                    findViewById<ImageView>(R.id.prof_pic).setImageURI(result.data?.data)
-                }
+                setImage(result)
             }
-
             GetUserName.REQUEST_USER_NAME -> {
                 findViewById<TextView>(R.id.user_name).text = result.data?.getStringExtra("UserName")
             }
-
             Country.REQUEST_GET_COUNTRY -> {
-                val country = result.data?.getParcelableExtra<Countries>(KEY_COUNTRY)
-                if (country != null) {
-                    findViewById<TextView>(R.id.select_country).text = country.name
-                    findViewById<ImageView>(R.id.country_flag).setImageResource(country.flag)
-                }
-
+                setCountry(result)
             }
         }
-
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        initUi()
+    }
+
+    private fun popupMenu(view: View) {
+        val popupMenu = PopupMenu(this, view)
+        popupMenu.inflate(R.menu.popup_menu)
+        popupMenu.setOnMenuItemClickListener {
+            when(it.itemId) {
+                R.id.take_a_photo -> {
+                    takePictureIntent()
+                }
+                R.id.open_gallery -> {
+                    picPictureIntent()
+                }
+            }
+            false
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            popupMenu.setForceShowIcon(true)
+        }
+        popupMenu.show()
+    }
+
+    private fun initUi() {
         val btnChangeProfPic = findViewById<ImageButton>(R.id.btn_change_prof_pic)
         val btnProfPic = findViewById<ImageView>(R.id.prof_pic)
         val btnEnterUserName = findViewById<View>(R.id.btn_enter_user_name)
@@ -77,33 +84,35 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
-
-    private fun popupMenu(view: View) {
-        val popupMenu = PopupMenu(this, view)
-        popupMenu.inflate(R.menu.popup_menu)
-        popupMenu.setOnMenuItemClickListener {
-            when(it.itemId) {
-                R.id.take_a_photo -> {
-                    val takePictureIntent = Intent(ACTION_IMAGE_CAPTURE)
-                    startForResult.launch(takePictureIntent)
-                }
-                R.id.open_gallery -> {
-                    val picPictureIntent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-                    startForResult.launch(picPictureIntent)
-                }
-
-            }
-            false
+    private fun setCountry(result: ActivityResult) {
+        val country = result.data?.getParcelableExtra<Countries>(KEY_COUNTRY)
+        if (country != null) {
+            findViewById<TextView>(R.id.select_country).text = country.name
+            findViewById<ImageView>(R.id.country_flag).setImageResource(country.flag)
         }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            popupMenu.setForceShowIcon(true)
-        }
-        popupMenu.show()
     }
 
+    private fun setImage(result: ActivityResult) {
+        if (result.data?.data == null) {
+            val imageBitmap = result.data?.extras?.get("data") as? Bitmap
+            findViewById<ImageView>(R.id.prof_pic).setImageBitmap(imageBitmap)
+        } else {
+            findViewById<ImageView>(R.id.prof_pic).setImageURI(result.data?.data)
+        }
+    }
+
+    private fun picPictureIntent() {
+        val takePictureIntent = Intent(ACTION_IMAGE_CAPTURE)
+        startForResult.launch(takePictureIntent)
+    }
+
+    private fun takePictureIntent() {
+        val picPictureIntent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+        startForResult.launch(picPictureIntent)
+    }
+
+
     companion object  {
-        const val REQUEST_PIC_FROM_GALLERY = 2
         const val REQUEST_USER_PIC = -1
     }
 }

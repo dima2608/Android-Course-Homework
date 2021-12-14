@@ -1,16 +1,13 @@
 package com.triare.p081userdata
 
 import android.content.Intent
-import android.graphics.drawable.Drawable
-import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Parcelable
-
 import kotlinx.parcelize.Parcelize
 import android.widget.ImageButton
 import android.widget.TextView
-import android.widget.Toast
+
 
 class Country : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,18 +24,23 @@ class Country : AppCompatActivity() {
 
         val countryList = listOf(ua, gb, no, au, jp)
 
-        countryList.forEach { country ->
-            findViewById<TextView>(country.id).setOnClickListener{
-                setResult(REQUEST_GET_COUNTRY, Intent().putExtra(KEY_COUNTRY, country))
-                finish()
-            }
-        }
+        setOnClickForCountryResult(countryList)
 
         btnGoBack.setOnClickListener {
             finish()
         }
 
     }
+
+    private fun setOnClickForCountryResult(item: List<Countries>) {
+        item.forEach { country ->
+            findViewById<TextView>(country.id).setOnClickListener{
+                setResult(REQUEST_GET_COUNTRY, Intent().putExtra(KEY_COUNTRY, country))
+                finish()
+            }
+        }
+    }
+
     companion object {
         const val KEY_COUNTRY = "KEY_COUNTRY_COUNTRY"
         const val REQUEST_GET_COUNTRY = 3
