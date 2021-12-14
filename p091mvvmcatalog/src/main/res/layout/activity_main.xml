@@ -22,26 +22,26 @@
         android:id="@+id/r_g"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintEnd_toStartOf="@id/guideline_right"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="18dp"
         android:layout_marginTop="64dp"
-        android:layout_marginStart="18dp">
+        android:orientation="vertical"
+        app:layout_constraintEnd_toStartOf="@id/guideline_right"
+        app:layout_constraintStart_toStartOf="@id/guideline_left"
+        app:layout_constraintTop_toTopOf="parent">
 
         <RadioButton
             android:id="@+id/btn_europe"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/europe"
-            android:checked="true"/>
+            android:checked="true"
+            android:text="@string/europe" />
 
         <RadioButton
             android:id="@+id/btn_asia"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/asia"
-            android:checked="true"/>
+            android:checked="true"
+            android:text="@string/asia" />
     </RadioGroup>
 
     <androidx.constraintlayout.widget.Guideline
@@ -87,9 +87,9 @@
         android:id="@+id/country_description"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:text="@string/eurasia_description"
         android:textAlignment="center"
-        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toStartOf="@id/guideline_right"
         app:layout_constraintStart_toStartOf="@id/guideline_left"
         app:layout_constraintTop_toBottomOf="@id/ic_country" />
