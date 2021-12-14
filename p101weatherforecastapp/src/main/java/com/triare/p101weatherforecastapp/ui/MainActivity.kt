@@ -1,20 +1,19 @@
-package com.triare.p101weatherforecastapp
+package com.triare.p101weatherforecastapp.ui
 
 import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Spannable
 import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
-import android.util.Log
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.triare.p101weatherforecastapp.R
+import com.triare.p101weatherforecastapp.WeatherViewModel
 import com.triare.p101weatherforecastapp.adaptor.HourlyWeatherAdaptor
-import com.triare.p101weatherforecastapp.model.DataItemHourlyDto
-import com.triare.p101weatherforecastapp.model.HourlyDto
 import com.triare.p101weatherforecastapp.repository.WeatherRepository
 
 class MainActivity : AppCompatActivity() {
@@ -28,20 +27,15 @@ class MainActivity : AppCompatActivity() {
     private var cloudiness: TextView? = null
     private var realFeel: TextView? = null
     private var wind: TextView? = null
-    private var hourlyWeather: HourlyDto? = null
+
+    private var hourlyWeatherAdaptor: HourlyWeatherAdaptor? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        viewModel = ViewModelProvider(this).get(WeatherViewModel::class.java)
-        val recyclerViewHourlyWeather = findViewById<RecyclerView>(R.id.recycler_view_hourly_weather)
         initUi()
         observeUpdates()
-
-        recyclerViewHourlyWeather.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-        recyclerViewHourlyWeather.adapter = hourlyWeather?.let { HourlyWeatherAdaptor(it.data) }
-
     }
 
     private fun initUi() {
@@ -51,12 +45,23 @@ class MainActivity : AppCompatActivity() {
         cloudiness = findViewById(R.id.cloudiness)
         realFeel = findViewById(R.id.real_feel)
         wind = findViewById(R.id.wind)
+
+        initRecyclerView()
+    }
+
+    private fun initRecyclerView() {
+        val recyclerViewHourlyWeather = findViewById<RecyclerView>(R.id.recycler_view_hourly_weather)
+        recyclerViewHourlyWeather.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        hourlyWeatherAdaptor = HourlyWeatherAdaptor()
+        recyclerViewHourlyWeather.adapter = hourlyWeatherAdaptor
     }
 
     private fun observeUpdates() {
+        viewModel = ViewModelProvider(this).get(WeatherViewModel::class.java)
+
         viewModel?.hourlyWeatherResult?.observe((this)){
-            hourlyWeather = it
-            Log.d("norm", it.data.size.toString())
+            hourlyWeatherAdaptor?.items = it.data
+            hourlyWeatherAdaptor?.notifyDataSetChanged()
         }
         viewModel?.currentWeatherResult?.observe(this) {
             val spannableRealFeelString = SpannableString(weatherRepository.getRealFeel(it))

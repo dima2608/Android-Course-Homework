@@ -7,12 +7,16 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.triare.p101weatherforecastapp.R
+import com.triare.p101weatherforecastapp.model.CurrentDto
 import com.triare.p101weatherforecastapp.model.DataItemHourlyDto
 import com.triare.p101weatherforecastapp.model.HourlyDto
 import com.triare.p101weatherforecastapp.repository.WeatherRepository
+import java.text.DateFormat
+import java.util.*
+import kotlin.math.roundToInt
 
-class HourlyWeatherAdaptor(private val items: List<DataItemHourlyDto>): RecyclerView.Adapter<HourlyWeatherAdaptor.HourlyWeatherViewHolder>() {
-    val weatherRepository = WeatherRepository()
+class HourlyWeatherAdaptor(): RecyclerView.Adapter<HourlyWeatherAdaptor.HourlyWeatherViewHolder>() {
+    var items: List<DataItemHourlyDto> = listOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HourlyWeatherViewHolder {
         val itemView = LayoutInflater.from(parent.context)
