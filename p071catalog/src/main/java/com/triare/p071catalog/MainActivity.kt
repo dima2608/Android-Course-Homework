@@ -111,7 +111,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setImage(meme: Int) {
-        val imgV = findViewById<ImageView>(R.id.img_meme)
+        val imgV = findViewById<ImageView>(R.id.ic_meme)
         imgV.setImageResource(meme)
     }
 
