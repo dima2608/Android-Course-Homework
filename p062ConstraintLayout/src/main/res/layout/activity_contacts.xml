@@ -27,8 +27,8 @@
         app:layout_constraintDimensionRatio="16:9"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription" />
 
     <ImageButton
         android:id="@+id/star_btn"
@@ -39,39 +39,39 @@
         app:layout_constraintBottom_toBottomOf="@id/banner"
         app:layout_constraintEnd_toStartOf="@id/guideline_right"
         app:layout_constraintTop_toBottomOf="@id/banner"
-        app:srcCompat="@drawable/ic_star" />
-
+        app:srcCompat="@drawable/ic_star"
+        tools:ignore="ContentDescription" />
 
     <ImageButton
         android:id="@+id/ic_phone"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="54dp"
         android:backgroundTint="@color/white"
         android:src="@drawable/ic_phone"
-        android:layout_marginTop="54dp"
         app:layout_constraintStart_toEndOf="@id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@id/star_btn" />
+        app:layout_constraintTop_toBottomOf="@id/star_btn"
+        tools:ignore="ContentDescription" />
 
     <TextView
         android:id="@+id/google_voice_num"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="21dp"
-        android:text="(650)132-1234"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@id/ic_phone"
-        app:layout_constraintTop_toTopOf="@id/ic_phone" />
+        app:layout_constraintTop_toTopOf="@id/ic_phone"
+        tools:text="(650)132-1234" />
 
     <TextView
         android:id="@+id/google_voice_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Google voice"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        app:layout_constraintStart_toStartOf="@id/google_voice_num"
         app:layout_constraintTop_toBottomOf="@id/google_voice_num"
-        app:layout_constraintStart_toStartOf="@id/google_voice_num"/>
-
+        tools:text="Google voice" />
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -81,7 +81,8 @@
         app:layout_constraintBottom_toBottomOf="@id/mobile"
         app:layout_constraintEnd_toEndOf="@+id/star_btn"
         app:layout_constraintStart_toStartOf="@id/star_btn"
-        app:layout_constraintTop_toTopOf="@id/mobile" />
+        app:layout_constraintTop_toTopOf="@id/mobile"
+        tools:ignore="ContentDescription" />
 
     <ImageButton
         android:id="@+id/imageButton"
@@ -92,27 +93,28 @@
         app:layout_constraintBottom_toBottomOf="@id/google_voice_num"
         app:layout_constraintEnd_toEndOf="@+id/star_btn"
         app:layout_constraintStart_toStartOf="@id/star_btn"
-        app:layout_constraintTop_toTopOf="@id/google_voice_num" />
+        app:layout_constraintTop_toTopOf="@id/google_voice_num"
+        tools:ignore="ContentDescription" />
 
     <TextView
         android:id="@+id/mobile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:text="(650)452-9454"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@id/google_voice_num"
-        app:layout_constraintTop_toBottomOf="@id/google_voice_num" />
+        app:layout_constraintTop_toBottomOf="@id/google_voice_num"
+        tools:text="(650)452-9454" />
 
     <TextView
         android:id="@+id/mobile_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Mobile"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        app:layout_constraintStart_toStartOf="@id/mobile"
         app:layout_constraintTop_toBottomOf="@id/mobile"
-        app:layout_constraintStart_toStartOf="@id/mobile"/>
+        tools:text="Mobile" />
 
     <View
         android:id="@+id/border"
@@ -128,28 +130,29 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_email"
-        app:layout_constraintStart_toStartOf="@id/ic_phone"
         app:layout_constraintEnd_toEndOf="@id/ic_phone"
-        app:layout_constraintTop_toTopOf="@id/email"/>
+        app:layout_constraintStart_toStartOf="@id/ic_phone"
+        app:layout_constraintTop_toTopOf="@id/email"
+        tools:ignore="ContentDescription" />
 
     <TextView
         android:id="@+id/email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:text="studio@android.com"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@id/google_voice_num"
-        app:layout_constraintTop_toBottomOf="@id/border" />
+        app:layout_constraintTop_toBottomOf="@id/border"
+        tools:text="studio@android.com" />
 
     <TextView
         android:id="@+id/email_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Work"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        app:layout_constraintStart_toStartOf="@id/email"
         app:layout_constraintTop_toBottomOf="@id/email"
-        app:layout_constraintStart_toStartOf="@id/email"/>
+        tools:text="Work" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -36,7 +36,8 @@
         app:layout_constraintDimensionRatio="16:9"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription" />
 
     <ImageView
         android:id="@+id/poster"
@@ -47,7 +48,8 @@
         app:layout_constraintBottom_toBottomOf="@id/banner"
         app:layout_constraintDimensionRatio="2:3"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/banner" />
+        app:layout_constraintTop_toBottomOf="@id/banner"
+        tools:ignore="ContentDescription" />
 
     <TextView
         android:id="@+id/movie_name"
@@ -73,7 +75,8 @@
         android:src="@drawable/ic_bookmark"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/banner" />
+        app:layout_constraintTop_toBottomOf="@id/banner"
+        tools:ignore="ContentDescription" />
 
     <TextView
         android:id="@+id/movie_description"
@@ -92,25 +95,25 @@
         android:id="@+id/btn_rent"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:backgroundTint="#9e00cf"
-        android:text="RENT FROM R29.99"
+        android:backgroundTint="@color/dark_pink"
         app:layout_constraintEnd_toStartOf="@id/btn_buy"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@id/guideline_btn" />
+        app:layout_constraintTop_toBottomOf="@id/guideline_btn"
+        tools:text="RENT FROM R29.99" />
 
     <Button
         android:id="@+id/btn_buy"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:backgroundTint="#9e00cf"
-        android:text="BYU FROM R129.99"
-        android:layout_marginRight="10dp"
+        android:backgroundTint="@color/dark_pink"
         app:layout_constraintEnd_toEndOf="@id/guideline_right"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@id/btn_rent"
-        app:layout_constraintTop_toBottomOf="@id/guideline_btn" />
+        app:layout_constraintTop_toBottomOf="@id/guideline_btn"
+        tools:layout_marginRight="10dp"
+        tools:text="BYU FROM R129.99" />
 
     <ImageButton
         android:id="@+id/rating"
@@ -123,7 +126,8 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@id/border" />
+        app:layout_constraintTop_toBottomOf="@id/border"
+        tools:ignore="ContentDescription" />
 
     <ImageButton
         android:id="@+id/family"
@@ -135,7 +139,8 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@id/rating"
         app:layout_constraintTop_toBottomOf="@id/border"
-        app:srcCompat="@drawable/ic_family" />
+        app:srcCompat="@drawable/ic_family"
+        tools:ignore="ContentDescription" />
 
     <ImageButton
         android:id="@+id/tomato"
@@ -143,12 +148,13 @@
         android:layout_height="71dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/round_outline"
-        android:backgroundTint="#FDDC89"
+        android:backgroundTint="@color/yellow"
         app:layout_constraintEnd_toStartOf="@id/similar"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@id/family"
         app:layout_constraintTop_toBottomOf="@id/border"
-        app:srcCompat="@drawable/ic_tomato" />
+        app:srcCompat="@drawable/ic_tomato"
+        tools:ignore="ContentDescription" />
 
     <ImageButton
         android:id="@+id/similar"
@@ -160,14 +166,15 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@id/tomato"
         app:layout_constraintTop_toBottomOf="@id/border"
-        app:srcCompat="@drawable/ic_similar" />
+        app:srcCompat="@drawable/ic_similar"
+        tools:ignore="ContentDescription" />
 
     <View
         android:id="@+id/border"
         android:layout_width="0dp"
         android:layout_height="1dp"
         android:layout_marginTop="16dp"
-        android:background="#ECC2FA"
+        android:background="@color/background_pink"
         app:layout_constraintEnd_toStartOf="@id/guideline_right"
         app:layout_constraintStart_toStartOf="@id/guideline_left"
         app:layout_constraintTop_toBottomOf="@id/btn_rent" />
@@ -177,7 +184,7 @@
         android:layout_width="0dp"
         android:layout_height="1dp"
         android:layout_marginTop="16dp"
-        android:background="#ECC2FA"
+        android:background="@color/background_pink"
         app:layout_constraintEnd_toStartOf="@id/guideline_right"
         app:layout_constraintStart_toStartOf="@id/guideline_left"
         app:layout_constraintTop_toBottomOf="@id/txt_rating" />
@@ -186,50 +193,51 @@
         android:id="@+id/txt_family"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Family"
+        android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="@id/family"
         app:layout_constraintStart_toStartOf="@id/family"
         app:layout_constraintTop_toBottomOf="@id/family"
-        android:layout_marginTop="10dp" />
+        tools:ignore="HardcodedText"
+        tools:text="Family" />
 
     <TextView
         android:id="@+id/procent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="72%"
+        android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="@id/tomato"
         app:layout_constraintStart_toStartOf="@id/tomato"
         app:layout_constraintTop_toBottomOf="@id/tomato"
-        android:layout_marginTop="10dp" />
+        tools:text="72%" />
 
     <TextView
         android:id="@+id/txt_similar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Similar"
+        android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="@id/similar"
         app:layout_constraintStart_toStartOf="@id/similar"
         app:layout_constraintTop_toBottomOf="@id/similar"
-        android:layout_marginTop="10dp"/>
+        tools:text="Similar" />
 
     <TextView
         android:id="@+id/txt_rating"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="243 ratings"
+        android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="@id/rating"
         app:layout_constraintStart_toStartOf="@id/rating"
         app:layout_constraintTop_toBottomOf="@id/rating"
-        android:layout_marginTop="10dp" />
+        tools:text="243 ratings" />
 
     <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/storyline"
-        android:textAlignment="center"
         android:layout_marginTop="16dp"
+        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="@id/guideline_right"
         app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@id/border_bottom" />
+        app:layout_constraintTop_toBottomOf="@id/border_bottom"
+        tools:text="@string/storyline" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
