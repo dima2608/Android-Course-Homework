@@ -5,7 +5,6 @@ import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.triare.p092recyclerview.adaptors.DirectAdaptor
-import com.triare.p092recyclerview.adaptors.StoriesAdaptor
 import com.triare.p092recyclerview.storage.UserStorage
 
 class DirectActivity : AppCompatActivity() {
@@ -13,10 +12,12 @@ class DirectActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_direct)
 
-        val recyclerViewDirect = findViewById<RecyclerView>(R.id.recycler_view_direct)
+        initRecyclerView()
+    }
 
+    private fun initRecyclerView() {
+        val recyclerViewDirect = findViewById<RecyclerView>(R.id.recycler_view_direct)
         recyclerViewDirect.layoutManager = LinearLayoutManager(this)
         recyclerViewDirect.adapter = DirectAdaptor(UserStorage.random(this))
-
     }
 }

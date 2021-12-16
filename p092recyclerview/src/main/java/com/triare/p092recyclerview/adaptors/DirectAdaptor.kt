@@ -9,6 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.triare.p092recyclerview.R
 import com.triare.p092recyclerview.User
+import com.triare.p092recyclerview.offline
+import com.triare.p092recyclerview.online
 
 class DirectAdaptor(private val items: List<User>): RecyclerView.Adapter<DirectAdaptor.DirectViewHolder>() {
 
@@ -49,10 +51,10 @@ class DirectAdaptor(private val items: List<User>): RecyclerView.Adapter<DirectA
         private fun isUserOnline(user: User) {
             when(user.isOnline){
                 true -> {
-                    isOnline.text = "Online"
+                    isOnline.text = online
                 }
                 false -> {
-                    isOnline.text = "Offline"
+                    isOnline.text = offline
                 }
             }
         }

@@ -36,10 +36,10 @@
         android:layout_margin="16dp"
         android:ellipsize="end"
         android:lines="3"
+        android:text="@string/jest_tekstem_stosowanym_jako_przyk_adowy_wype_niacz_w_przemy_le_poligraficznym_zosta_po_raz_pierwszy_u_yty_w_xv_w_przez_nieznanego_drukarza_do_wype_nienia_tekstem_pr_bnej_ksi_ki"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/textView"
-        app:layout_constraintTop_toBottomOf="@id/textView"
-        tools:text="@string/jest_tekstem_stosowanym_jako_przyk_adowy_wype_niacz_w_przemy_le_poligraficznym_zosta_po_raz_pierwszy_u_yty_w_xv_w_przez_nieznanego_drukarza_do_wype_nienia_tekstem_pr_bnej_ksi_ki" />
+        app:layout_constraintTop_toBottomOf="@id/textView" />
 
     <View
         android:id="@+id/border"

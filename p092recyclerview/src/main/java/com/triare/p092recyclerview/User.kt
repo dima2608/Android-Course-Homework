@@ -10,3 +10,5 @@ data class User (
 )
 
 val ic_avatar = "https://1.bp.blogspot.com/-wcGBBlbjSgY/XyOHzJP5hmI/AAAAAAAAFXA/pj-_e6iUCYUXaBqFYFnaLBJ2Z3-A6hz3ACLcBGAsYHQ/s750/2.jpg"
+val online = "Online"
+val offline = "Offline"

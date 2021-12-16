@@ -2,6 +2,7 @@ package com.triare.p092recyclerview
 
 import android.os.Bundle
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -10,12 +11,11 @@ import com.triare.p092recyclerview.adaptors.ProfileAdaptor
 import com.triare.p092recyclerview.storage.UserStorage
 
 class ProfileActivity : AppCompatActivity() {
-    private val avatar: ImageView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
-        val avatar = R.id.user_avatar
+
         initUi()
     }
 
@@ -31,6 +31,7 @@ class ProfileActivity : AppCompatActivity() {
     }
 
     private fun setAvatar() {
+        val avatar = findViewById<ImageView>(R.id.user_avatar)
         if (avatar != null) {
             Glide.with(applicationContext)
                 .asBitmap()
