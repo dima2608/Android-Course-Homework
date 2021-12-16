@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
 
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
 
-        viewModel!!.countryLive.observe(this, Observer {
+        viewModel!!.countryLiveData.observe(this, Observer {
             if (it != null) {
                 findViewById<TextView>(R.id.country_title).setText(it.title)
                 findViewById<ImageView>(R.id.ic_country).setImageDrawable(getDrawable(it.flag))
