@@ -8,6 +8,9 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Android Course Homework"
 include ':app'
+p092recycler
 include ':p081userdata'
 include ':p091mvvmcatalog'
 include ':p092recyclerview'
+include ':p062ConstraintLayout'
+include ':p071catalog'
