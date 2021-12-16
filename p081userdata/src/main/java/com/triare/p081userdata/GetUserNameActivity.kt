@@ -8,8 +8,7 @@ import android.widget.TextView
 import android.widget.Toast
 import com.google.android.material.textfield.TextInputLayout
 
-class GetUserName : AppCompatActivity() {
-
+class GetUserNameActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,7 +31,7 @@ class GetUserName : AppCompatActivity() {
             if (userName.toString().isEmpty()) {
                 Toast.makeText(this, "You did not enter your name ", Toast.LENGTH_SHORT).show()
             }else {
-                setResult(REQUEST_USER_NAME, Intent().putExtra("UserName", userName.toString()))
+                setResult(REQUEST_USER_NAME, Intent().putExtra(KEY_USER_NAME, userName.toString()))
                 finish()
             }
         }
@@ -40,6 +39,7 @@ class GetUserName : AppCompatActivity() {
 
     companion object  {
         const val REQUEST_USER_NAME = 1
+        const val KEY_USER_NAME = "KEY_USER_NAME"
     }
 
 }

@@ -16,10 +16,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidCourseHomework">
         <activity
-            android:name=".Country"
+            android:name=".CountryActivity"
             android:exported="false" />
         <activity
-            android:name=".GetUserName"
+            android:name=".GetUserNameActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

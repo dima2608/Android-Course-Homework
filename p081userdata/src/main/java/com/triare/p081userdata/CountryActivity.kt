@@ -9,29 +9,33 @@ import android.widget.ImageButton
 import android.widget.TextView
 
 
-class Country : AppCompatActivity() {
+class CountryActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_country)
 
+        initUi()
+    }
+
+    private fun initUi() {
+        setOnClickForCountryResult(getCountryList())
+        goBeckBtn()
+    }
+
+    private fun goBeckBtn(){
+        val btnGoBack = findViewById<ImageButton>(R.id.btn_go_back_country)
+        btnGoBack.setOnClickListener {
+            finish()
+        }
+    }
+    private fun getCountryList(): List<Countries> {
         val ua = Countries("Ukraine", R.drawable.ic_ua, R.id.btn_country_ua)
         val gb = Countries("United Kingdom", R.drawable.ic_gb, R.id.btn_country_uk)
         val no = Countries("Norway", R.drawable.ic_no, R.id.btn_country_no)
         val au = Countries("Australia", R.drawable.ic_au, R.id.btn_country_au)
         val jp = Countries("Japan", R.drawable.ic_jp, R.id.btn_country_jp)
-
-        val btnGoBack = findViewById<ImageButton>(R.id.btn_go_back_country)
-
-        val countryList = listOf(ua, gb, no, au, jp)
-
-        setOnClickForCountryResult(countryList)
-
-        btnGoBack.setOnClickListener {
-            finish()
-        }
-
+        return listOf(ua, gb, no, au, jp)
     }
-
     private fun setOnClickForCountryResult(item: List<Countries>) {
         item.forEach { country ->
             findViewById<TextView>(country.id).setOnClickListener{

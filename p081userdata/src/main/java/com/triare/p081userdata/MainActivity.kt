@@ -11,7 +11,8 @@ import android.view.View
 import android.widget.*
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
-import com.triare.p081userdata.Country.Companion.KEY_COUNTRY
+import com.triare.p081userdata.CountryActivity.Companion.KEY_COUNTRY
+import com.triare.p081userdata.GetUserNameActivity.Companion.KEY_USER_NAME
 import java.lang.Error
 
 class MainActivity : AppCompatActivity() {
@@ -22,10 +23,10 @@ class MainActivity : AppCompatActivity() {
             REQUEST_USER_PIC -> {
                 setImage(result)
             }
-            GetUserName.REQUEST_USER_NAME -> {
-                findViewById<TextView>(R.id.user_name).text = result.data?.getStringExtra("UserName")
+            GetUserNameActivity.REQUEST_USER_NAME -> {
+                findViewById<TextView>(R.id.user_name).text = result.data?.getStringExtra(KEY_USER_NAME)
             }
-            Country.REQUEST_GET_COUNTRY -> {
+            CountryActivity.REQUEST_GET_COUNTRY -> {
                 setCountry(result)
             }
         }
@@ -72,14 +73,14 @@ class MainActivity : AppCompatActivity() {
         }
         btnEnterUserName.setOnClickListener {
             try {
-                val getUserNameIntent = Intent(this, GetUserName::class.java)
+                val getUserNameIntent = Intent(this, GetUserNameActivity::class.java)
                 startForResult.launch(getUserNameIntent)
             }catch (err: Error){
                 Toast.makeText(this, "getUserNameIntent Error", Toast.LENGTH_SHORT).show()
             }
         }
         btnChooseCountry.setOnClickListener {
-            val getUserCountry = Intent(this, Country::class.java)
+            val getUserCountry = Intent(this, CountryActivity::class.java)
             startForResult.launch(getUserCountry)
         }
     }
