@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="16dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="16dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="346dp" />
+
+    <ImageView
+        android:id="@+id/banner"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/banner"
+        app:layout_constraintDimensionRatio="16:9"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/poster"
+        android:layout_width="0dp"
+        android:layout_height="170dp"
+        android:layout_marginStart="16dp"
+        android:src="@drawable/ic_movie"
+        app:layout_constraintBottom_toBottomOf="@id/banner"
+        app:layout_constraintDimensionRatio="2:3"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/banner"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/movie_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/movie_name"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toStartOf="@id/bookmark"
+        app:layout_constraintStart_toEndOf="@id/poster"
+        app:layout_constraintTop_toBottomOf="@id/banner" />
+
+    <ImageButton
+        android:id="@+id/bookmark"
+        android:layout_width="34dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@android:color/white"
+        android:src="@drawable/ic_bookmark"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/banner"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/movie_description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/movie_description"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/poster"
+        app:layout_constraintTop_toBottomOf="@id/movie_name" />
+
+
+    <Button
+        android:id="@+id/btn_rent"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/dark_pink"
+        app:layout_constraintEnd_toStartOf="@id/btn_buy"
+        app:layout_constraintStart_toStartOf="@id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@id/guideline_btn"
+        tools:text="RENT FROM R29.99" />
+
+    <Button
+        android:id="@+id/btn_buy"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:backgroundTint="@color/dark_pink"
+        app:layout_constraintEnd_toEndOf="@id/guideline_right"
+        app:layout_constraintStart_toEndOf="@id/btn_rent"
+        app:layout_constraintTop_toBottomOf="@id/guideline_btn"
+        tools:layout_marginRight="10dp"
+        tools:text="BYU FROM R129.99" />
+
+    <ImageButton
+        android:id="@+id/rating"
+        android:layout_width="77dp"
+        android:layout_height="71dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/round_outline"
+        android:src="@drawable/ic_rating_5"
+        app:layout_constraintEnd_toStartOf="@+id/family"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="@id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@id/border"
+        tools:ignore="ContentDescription" />
+
+    <ImageButton
+        android:id="@+id/family"
+        android:layout_width="77dp"
+        android:layout_height="71dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/round_outline"
+        app:layout_constraintEnd_toStartOf="@+id/tomato"
+        app:layout_constraintStart_toEndOf="@id/rating"
+        app:layout_constraintTop_toBottomOf="@id/border"
+        app:srcCompat="@drawable/ic_family"
+        tools:ignore="ContentDescription" />
+
+    <ImageButton
+        android:id="@+id/tomato"
+        android:layout_width="77dp"
+        android:layout_height="71dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/round_outline"
+        android:backgroundTint="@color/yellow"
+        app:layout_constraintEnd_toStartOf="@id/similar"
+        app:layout_constraintStart_toEndOf="@id/family"
+        app:layout_constraintTop_toBottomOf="@id/border"
+        app:srcCompat="@drawable/ic_tomato"
+        tools:ignore="ContentDescription" />
+
+    <ImageButton
+        android:id="@+id/similar"
+        android:layout_width="77dp"
+        android:layout_height="71dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/round_outline"
+        app:layout_constraintEnd_toEndOf="@id/guideline_right"
+        app:layout_constraintStart_toEndOf="@id/tomato"
+        app:layout_constraintTop_toBottomOf="@id/border"
+        app:srcCompat="@drawable/ic_similar"
+        tools:ignore="ContentDescription" />
+
+    <View
+        android:id="@+id/border"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/background_pink"
+        app:layout_constraintEnd_toStartOf="@id/guideline_right"
+        app:layout_constraintStart_toStartOf="@id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@id/btn_rent" />
+
+    <View
+        android:id="@+id/border_bottom"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/background_pink"
+        app:layout_constraintEnd_toStartOf="@id/guideline_right"
+        app:layout_constraintStart_toStartOf="@id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@id/txt_rating" />
+
+    <TextView
+        android:id="@+id/txt_family"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="@id/family"
+        app:layout_constraintStart_toStartOf="@id/family"
+        app:layout_constraintTop_toBottomOf="@id/family"
+        tools:ignore="HardcodedText"
+        tools:text="Family" />
+
+    <TextView
+        android:id="@+id/procent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="@id/tomato"
+        app:layout_constraintStart_toStartOf="@id/tomato"
+        app:layout_constraintTop_toBottomOf="@id/tomato"
+        tools:text="72%" />
+
+    <TextView
+        android:id="@+id/txt_similar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="@id/similar"
+        app:layout_constraintStart_toStartOf="@id/similar"
+        app:layout_constraintTop_toBottomOf="@id/similar"
+        tools:text="Similar" />
+
+    <TextView
+        android:id="@+id/txt_rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="@id/rating"
+        app:layout_constraintStart_toStartOf="@id/rating"
+        app:layout_constraintTop_toBottomOf="@id/rating"
+        tools:text="243 ratings" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="@id/guideline_right"
+        app:layout_constraintStart_toStartOf="@id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@id/border_bottom"
+        tools:text="@string/storyline" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
