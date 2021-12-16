@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/menu_btn_previous_layout"
+        android:icon="@drawable/ic_navigate_before"
+        android:title="previous layout"
+        app:showAsAction="ifRoom"/>
+
+    <item android:id="@+id/menu_btn_next_layout"
+        android:icon="@drawable/ic_navigate_next"
+        android:title="next layout"
+        app:showAsAction="ifRoom"/>
+</menu>

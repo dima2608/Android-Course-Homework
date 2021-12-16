@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:id="@+id/top_memes">
+
+        <item android:title="@string/naw">
+            <menu>
+                <item android:id="@+id/top_meme_naw_1"
+                    android:title= "@string/top_meme_1" />
+                <item android:id="@+id/top_meme_naw_2"
+                    android:title="@string/top_meme_2" />
+                <item android:id="@+id/top_meme_naw_3"
+                    android:title="@string/top_meme_3" />
+            </menu>
+        </item>
+
+        <item android:title="@string/today">
+            <menu>
+                <item android:id="@+id/top_meme_today_1"
+                    android:title= "@string/top_meme_1" />
+                <item android:id="@+id/top_meme_today_2"
+                    android:title= "@string/top_meme_2" />
+                <item android:id="@+id/top_meme_today_3"
+                    android:title= "@string/top_meme_3" />
+            </menu>
+        </item>
+
+        <item android:title="@string/this_months">
+            <menu>
+                <item android:id="@+id/top_meme_this_months_1"
+                    android:title= "@string/top_meme_1" />
+                <item android:id="@+id/top_meme_this_months_2"
+                    android:title= "@string/top_meme_2" />
+                <item android:id="@+id/top_meme_this_months_3"
+                    android:title= "@string/top_meme_3" />
+            </menu>
+        </item>
+    </group>
+
+    <group android:id="@+id/top_memes_last_decade_s">
+
+        <item android:title="@string/fun">
+            <menu>
+                <item android:id="@+id/fun_meme_1"
+                    android:title= "@string/top_meme_1" />
+                <item android:id="@+id/fun_meme_2"
+                    android:title= "@string/top_meme_2" />
+                <item android:id="@+id/fun_meme_3"
+                    android:title= "@string/top_meme_3" />
+            </menu>
+        </item>
+
+        <item android:title="@string/super_fun">
+            <menu>
+                <item android:id="@+id/super_fun_meme_1"
+                    android:title= "@string/top_meme_1" />
+                <item android:id="@+id/super_fun_meme_2"
+                    android:title= "@string/top_meme_2" />
+                <item android:id="@+id/super_fun_meme_3"
+                    android:title= "@string/top_meme_3" />
+            </menu>
+        </item>
+
+        <item android:title="@string/ultra_fun">
+            <menu>
+                <item android:id="@+id/ultra_fun_meme_1"
+                    android:title= "@string/top_meme_1" />
+                <item android:id="@+id/ultra_fun_meme_2"
+                    android:title= "@string/top_meme_2" />
+                <item android:id="@+id/ultra_fun_meme_3"
+                    android:title= "@string/top_meme_3" />
+            </menu>
+        </item>
+    </group>
+</menu>
