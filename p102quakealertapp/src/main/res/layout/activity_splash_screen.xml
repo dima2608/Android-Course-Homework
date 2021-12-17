@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/red"
+    tools:context=".splashscreen.SplashScreenActivity">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="82dp"
+        android:drawablePadding="32dp"
+        android:text="@string/quake"
+        android:textAlignment="textStart"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_32sp"
+        android:textStyle="bold"
+        app:drawableTopCompat="@drawable/ic_logo_splash_screen"
+        app:layout_constraintBottom_toTopOf="@id/ic_bg_pattern_splash_scr"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <View
+        android:id="@+id/ic_bg_pattern_splash_scr"
+        android:layout_width="0dp"
+        android:layout_height="280dp"
+        android:background="@drawable/ic_bg_pattern"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

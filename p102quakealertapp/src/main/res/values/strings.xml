@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Quake Alert app</string>
+    <string name="quake">Землетруси</string>
+    <string name="home">Головна</string>
+    <string name="recommendation">Загальні рекомендації</string>
+    <string name="about_us">Про нас</string>
+</resources>
