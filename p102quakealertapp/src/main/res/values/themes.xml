@@ -16,11 +16,17 @@
 
     <style name="SplashScreenTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="android:windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
         <item name="android:windowFullscreen">true</item>
     </style>
 
     <style name="NavigationTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="android:textSize">14sp</item>
         <item name="android:layout_marginBottom">10dp</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="colorPrimary">@color/primary_gray</item>
+        <item name="collapsedTitleGravity">center</item>
     </style>
 </resources>
