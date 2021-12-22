@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Theme.AndroidCourseHomework" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimary">@color/primary_gray</item>
         <item name="colorPrimaryVariant">@android:color/darker_gray</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
@@ -12,6 +12,7 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="android:windowNoTitle">true</item>
     </style>
 
     <style name="SplashScreenTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
@@ -24,9 +25,7 @@
         <item name="android:textSize">14sp</item>
         <item name="android:layout_marginBottom">10dp</item>
         <item name="android:windowNoTitle">true</item>
-        <item name="windowActionBar">false</item>
-        <item name="android:windowFullscreen">true</item>
+        <item name="windowActionBar">true</item>
         <item name="colorPrimary">@color/primary_gray</item>
-        <item name="collapsedTitleGravity">center</item>
     </style>
 </resources>

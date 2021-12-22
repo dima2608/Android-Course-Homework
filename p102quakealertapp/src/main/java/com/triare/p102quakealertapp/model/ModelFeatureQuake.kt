@@ -2,7 +2,7 @@ package com.triare.p102quakealertapp.model
 
 import com.google.gson.annotations.SerializedName
 
-data class Response(
+data class QuakeDto(
 
 	@SerializedName("features")
 	val features: List<FeaturesItem>,

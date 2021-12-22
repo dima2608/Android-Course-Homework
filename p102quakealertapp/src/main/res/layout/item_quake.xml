@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    app:cardCornerRadius="4dp"
+    app:cardElevation="3dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp">
+
+
+        <TextView
+            android:id="@+id/time_when_quake"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="18dp"
+            android:drawablePadding="10dp"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_14sp"
+            app:drawableStartCompat="@drawable/ic_access_time"
+            tools:text="22 дні тому" />
+
+        <TextView
+            android:id="@+id/location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/time_when_quake"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="16dp"
+            android:drawablePadding="10dp"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_14sp"
+            app:drawableStartCompat="@drawable/ic_location_searching"
+            tools:text="10 км на Пн-Сх від Токіо" />
+
+        <TextView
+            android:id="@+id/intensity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/location"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="28dp"
+            android:text="@string/quake_intensity"
+            android:textColor="@color/light_black"
+            android:textSize="@dimen/text_size_12sp" />
+
+        <TextView
+            android:id="@+id/quake_intensity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/intensity"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="24dp"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="4dp"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_11sp"
+            android:textStyle="bold"
+            tools:background="#8ACB79"
+            tools:text="Ледь відчутний" />
+
+        <View
+            android:id="@+id/separator"
+            android:layout_width="1dp"
+            android:layout_height="48dp"
+            android:layout_alignTop="@id/quake_size"
+            android:layout_marginStart="24dp"
+            android:layout_toEndOf="@id/quake_intensity"
+            android:background="@drawable/dotted_vertical"
+            android:layerType="software" />
+
+        <TextView
+            android:id="@+id/quake_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/intensity"
+            android:layout_marginStart="24dp"
+            android:layout_toEndOf="@id/separator"
+            android:text="@string/quake_size"
+            android:textColor="@color/light_black"
+            android:textSize="@dimen/text_size_12sp" />
+
+        <TextView
+            android:id="@+id/magnitude"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/quake_size"
+            android:layout_alignStart="@id/quake_size"
+            android:layout_marginTop="8dp"
+            android:drawablePadding="8dp"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_18sp"
+            app:drawableStartCompat="@drawable/ic_icon_park_waves"
+            tools:text="1.0" />
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
