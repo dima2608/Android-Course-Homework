@@ -12,4 +12,9 @@
     <color name="dark_red">#DF2126</color>
     <color name="gray">#332B2B3D</color>
     <color name="primary_gray">#F5F5F5</color>
+
+    <color name="green_intensity">#8ACB79</color>
+    <color name="blue_intensity">#73C7B3</color>
+    <color name="yellow_intensity">#EEC800</color>
+    <color name="orange_intensity">#F87F28</color>
 </resources>

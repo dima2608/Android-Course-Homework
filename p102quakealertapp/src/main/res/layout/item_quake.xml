@@ -72,7 +72,7 @@
             android:layout_width="1dp"
             android:layout_height="48dp"
             android:layout_alignTop="@id/quake_size"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="78dp"
             android:layout_toEndOf="@id/quake_intensity"
             android:background="@drawable/dotted_vertical"
             android:layerType="software" />
@@ -82,8 +82,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@id/intensity"
-            android:layout_marginStart="24dp"
-            android:layout_toEndOf="@id/separator"
+            android:layout_marginStart="132dp"
+            android:layout_toEndOf="@id/intensity"
             android:text="@string/quake_size"
             android:textColor="@color/light_black"
             android:textSize="@dimen/text_size_12sp" />
