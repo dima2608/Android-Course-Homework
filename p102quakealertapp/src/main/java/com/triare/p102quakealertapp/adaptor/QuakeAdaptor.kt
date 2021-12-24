@@ -1,6 +1,7 @@
 package com.triare.p102quakealertapp.adaptor
 
 import android.annotation.SuppressLint
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -55,13 +56,14 @@ class QuakeAdaptor(
         override fun onClick(v: View?) {
             val position = adapterPosition
             if (position != RecyclerView.NO_POSITION) {
-                listener.onItemClick(position)
+                listener.onItemClick(position, data = items[position])
+                Log.d("TEST", items[position].toString())
             }
         }
     }
 
     interface OnItemClickListener {
-        fun onItemClick(position: Int)
+        fun onItemClick(position: Int, data: FeaturesItem)
     }
 
     companion object {

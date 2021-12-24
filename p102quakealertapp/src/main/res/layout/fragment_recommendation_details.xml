@@ -1,13 +1,161 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RecommendationDetailsFragment">
+    tools:context=".fragments.RecommendationDetailsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:id="@+id/whenTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="34dp"
+        android:drawablePadding="10dp"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_size_14sp"
+        app:drawableStartCompat="@drawable/ic_access_time"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="12 Days ago" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/where"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:drawablePadding="10dp"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_size_14sp"
+        app:drawableStartCompat="@drawable/ic_location_searching"
+        app:layout_constraintStart_toStartOf="@id/whenTime"
+        app:layout_constraintTop_toBottomOf="@id/whenTime"
+        tools:text="12 Days ago" />
+
+    <TextView
+        android:id="@+id/intensity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="@string/quake_intensity"
+        android:textColor="@color/light_black"
+        android:textSize="@dimen/text_size_12sp"
+        app:layout_constraintStart_toStartOf="@+id/where"
+        app:layout_constraintTop_toBottomOf="@+id/where" />
+
+    <TextView
+        android:id="@+id/quake_size"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/intensity"
+        android:layout_marginStart="24dp"
+        android:layout_toEndOf="@id/intensity"
+        android:text="@string/quake_size"
+        android:textColor="@color/light_black"
+        android:textSize="@dimen/text_size_12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/intensity"
+        app:layout_constraintStart_toEndOf="@+id/separator"
+        app:layout_constraintTop_toTopOf="@+id/intensity" />
+
+    <View
+        android:id="@+id/separator"
+        android:layout_width="1dp"
+        android:layout_height="48dp"
+        android:layout_alignTop="@id/quake_size"
+        android:layout_marginStart="108dp"
+        android:background="@drawable/dotted_vertical"
+        android:layerType="software"
+        app:layout_constraintBottom_toBottomOf="@+id/quake_magnitude"
+        app:layout_constraintStart_toEndOf="@+id/intensity"
+        app:layout_constraintTop_toTopOf="@+id/quake_size" />
+
+    <TextView
+        android:id="@+id/quake_magnitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/quake_size"
+        android:layout_alignStart="@id/quake_size"
+        android:layout_marginTop="8dp"
+        android:drawablePadding="8dp"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_size_18sp"
+        app:drawableStartCompat="@drawable/ic_icon_park_waves"
+        app:layout_constraintStart_toStartOf="@id/quake_size"
+        app:layout_constraintTop_toBottomOf="@id/quake_size"
+        tools:text="1.0" />
+
+    <TextView
+        android:id="@+id/quake_intensity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/intensity"
+        android:layout_marginTop="8dp"
+        android:paddingHorizontal="8dp"
+        android:paddingVertical="4dp"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_11sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/intensity"
+        app:layout_constraintTop_toBottomOf="@id/intensity"
+        tools:background="#8ACB79"
+        tools:text="Ледь відчутний" />
+
+    <View
+        android:id="@+id/bottom_separator"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_alignTop="@id/quake_size"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/dotted_horizontal"
+        android:layerType="software"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/quake_intensity"
+        app:layout_constraintTop_toBottomOf="@id/quake_intensity" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/first_to_do_when_quake"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_size_18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/bottom_separator"
+        app:layout_constraintTop_toTopOf="@id/bottom_separator" />
+
+    <View
+        android:id="@+id/red_separator"
+        android:layout_width="32dp"
+        android:layout_height="3dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/red"
+        app:layout_constraintStart_toStartOf="@id/textView"
+        app:layout_constraintTop_toBottomOf="@id/textView" />
+
+    <ImageView
+        android:id="@+id/wait"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:src="@drawable/ic_framewheit"
+        app:layout_constraintStart_toEndOf="@+id/hide"
+        app:layout_constraintTop_toTopOf="@+id/hide"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/hide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:src="@drawable/ic_frameshavaisia"
+        app:layout_constraintStart_toStartOf="@id/red_separator"
+        app:layout_constraintTop_toBottomOf="@id/red_separator"
+        tools:ignore="ContentDescription" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -14,5 +14,4 @@ enum class QuakeIntensity(
     AVERAGE(R.string.average_intensity_title, R.color.yellow_intensity),
     STRONG(R.string.strong_intensity_title, R.color.orange_intensity),
     VERY_STRONG(R.string.very_strong_intensity_title, R.color.red);
-
 }

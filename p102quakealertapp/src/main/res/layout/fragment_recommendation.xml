@@ -1,13 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RecommendationFragment">
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="32dp"
+    android:orientation="vertical"
+    tools:context=".fragments.RecommendationFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/recommendation"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_size_18sp"
+        android:textStyle="bold" />
 
-</FrameLayout>
+    <View
+        android:layout_width="32dp"
+        android:layout_height="3dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/red" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:lineSpacingExtra="16dp"
+        android:text="@string/recommendation_details"
+        android:textColor="@color/black"
+        android:textSize="15sp" />
+
+</LinearLayout>

@@ -9,7 +9,7 @@ data class QuakeDto(
 
 	@SerializedName("type")
 	val type: String
-)
+): java.io.Serializable
 
 data class FeaturesItem(
 
@@ -21,7 +21,7 @@ data class FeaturesItem(
 
 	@SerializedName("properties")
 	val properties: Properties
-)
+): java.io.Serializable
 
 data class Properties(
 
@@ -45,7 +45,7 @@ data class Properties(
 
 	@SerializedName("quality")
 	val quality: String
-)
+): java.io.Serializable
 
 data class Geometry(
 
@@ -54,4 +54,4 @@ data class Geometry(
 
 	@SerializedName("type")
 	val type: String
-)
+): java.io.Serializable
