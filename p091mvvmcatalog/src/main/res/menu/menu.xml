@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:id="@+id/menu_Europe">
+
+        <item android:title="@string/west">
+            <menu>
+                <item android:id="@+id/andorra"
+                    android:title= "@string/andorra" />
+                <item android:id="@+id/portugal"
+                    android:title="@string/portugal" />
+                <item android:id="@+id/spain"
+                    android:title="@string/spain" />
+            </menu>
+        </item>
+
+        <item android:title="@string/middle">
+            <menu>
+                <item android:id="@+id/poland"
+                    android:title= "@string/poland" />
+                <item android:id="@+id/slovakia"
+                    android:title= "@string/slovakia" />
+                <item android:id="@+id/slovenia"
+                    android:title= "@string/slovenia" />
+            </menu>
+        </item>
+
+        <item android:title="@string/east">
+            <menu>
+                <item android:id="@+id/ukraine"
+                    android:title= "@string/ukraine" />
+                <item android:id="@+id/estonia"
+                    android:title= "@string/estonia" />
+                <item android:id="@+id/latvia"
+                    android:title= "@string/latvia" />
+            </menu>
+        </item>
+    </group>
+
+    <group android:id="@+id/menu_Asia">
+
+        <item android:title="@string/west">
+            <menu>
+                <item android:id="@+id/turkey"
+                    android:title= "@string/turkey" />
+                <item android:id="@+id/georgia"
+                    android:title= "@string/georgia" />
+                <item android:id="@+id/qatar"
+                    android:title= "@string/qatar" />
+            </menu>
+        </item>
+
+        <item android:title="@string/middle">
+            <menu>
+                <item android:id="@+id/kazakhstan"
+                    android:title= "@string/kazakhstan" />
+                <item android:id="@+id/kyrgyzstan"
+                    android:title= "@string/kyrgyzstan" />
+                <item android:id="@+id/tajikistan"
+                    android:title= "@string/tajikistan" />
+            </menu>
+        </item>
+
+        <item android:title="@string/east">
+            <menu>
+                <item android:id="@+id/japan"
+                    android:title= "@string/japan" />
+                <item android:id="@+id/south_korea"
+                    android:title= "@string/south_korea" />
+                <item android:id="@+id/hong_kong"
+                    android:title= "@string/hong_kong" />
+            </menu>
+        </item>
+    </group>
+</menu>
