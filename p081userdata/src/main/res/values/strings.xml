@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">p081UserData</string>
+    <string name="save">Save</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="profile_photo">Profile Photo</string>
+    <string name="name">NAME</string>
+    <string name="user_name">Enter your name</string>
+    <string name="country">COUNTRY</string>
+    <string name="user_country">Select your country</string>
+    <string name="please_enter_your_name">Please enter your name</string>
+    <string name="take_a_photo">Take a photo</string>
+    <string name="choose_from_gallery">Choose from gallery</string>
+    <string name="ukraine">Ukraine</string>
+    <string name="poland">Poland</string>
+    <string name="australia">Australia</string>
+    <string name="norway">Norway</string>
+    <string name="united_kingdom">United Kingdom</string>
+    <string name="japan">Japan</string>
+
+</resources>
