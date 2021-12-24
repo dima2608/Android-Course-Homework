@@ -1,4 +1,4 @@
-package com.triare.p101weatherforecastapp.model
+package com.triare.p101weatherforecastapp.models
 
 import com.google.gson.annotations.SerializedName
 
@@ -50,7 +50,7 @@ data class DataItemCurrentDto(
     val datetime: String,
 
     @field:SerializedName("precip")
-    val precip: Int,
+    val precip: Double,
 
     @field:SerializedName("weather")
     val weatherCurrentDto: WeatherCurrentDto,
@@ -68,7 +68,7 @@ data class DataItemCurrentDto(
     val lat: Double,
 
     @field:SerializedName("vis")
-    val vis: Int,
+    val vis: Double,
 
     @field:SerializedName("uv")
     val uv: Double,
@@ -104,7 +104,7 @@ data class DataItemCurrentDto(
     val slp: Double,
 
     @field:SerializedName("snow")
-    val snow: Int,
+    val snow: Double,
 
     @field:SerializedName("sunset")
     val sunset: String,

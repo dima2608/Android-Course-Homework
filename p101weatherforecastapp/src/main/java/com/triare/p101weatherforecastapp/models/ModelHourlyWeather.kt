@@ -1,4 +1,4 @@
-package com.triare.p101weatherforecastapp.model
+package com.triare.p101weatherforecastapp.models
 
 import com.google.gson.annotations.SerializedName
 
@@ -119,7 +119,7 @@ data class DataItemHourlyDto(
 	val slp: Double,
 
 	@field:SerializedName("snow")
-	val snow: Int,
+	val snow: Double,
 
 	@field:SerializedName("sunset")
 	val sunset: String,
