@@ -1,21 +1,17 @@
-package com.triare.p101weatherforecastapp.adaptors
+package com.triare.p101weatherforecastapp.ui.wearher
 
-import android.graphics.drawable.Drawable
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.triare.p101weatherforecastapp.R
-import com.triare.p101weatherforecastapp.models.CurrentDto
-import com.triare.p101weatherforecastapp.models.DataItemHourlyDto
-import com.triare.p101weatherforecastapp.models.HourlyDto
+import com.triare.p101weatherforecastapp.data.api.model.DataItemHourlyDto
 
 
-class HourlyWeatherAdaptor() :
-    RecyclerView.Adapter<HourlyWeatherAdaptor.HourlyWeatherViewHolder>() {
+class HourlyWeatherAdapter :
+    RecyclerView.Adapter<HourlyWeatherAdapter.HourlyWeatherViewHolder>() {
     var items: List<DataItemHourlyDto> = listOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HourlyWeatherViewHolder {
@@ -26,7 +22,7 @@ class HourlyWeatherAdaptor() :
 
     override fun onBindViewHolder(holder: HourlyWeatherViewHolder, position: Int) {
         holder.bind(items[position])
-        Log.d(" Workkk", items[position].toString())
+        Log.d(TAG, items[position].toString())
     }
 
     override fun getItemCount() = items.size
@@ -39,11 +35,8 @@ class HourlyWeatherAdaptor() :
             time.text = data.datetime
             hourlyTemp.text = "${data.temp} °"
             hourlyTemp.setCompoundDrawablesWithIntrinsicBounds(getWeatherIcon(data), 0, 0, 0)
-
         }
-    }
 
-    companion object {
         private fun getWeatherIcon(dto: DataItemHourlyDto): Int {
             val isDay = dto.pod == "d"
 
@@ -59,4 +52,9 @@ class HourlyWeatherAdaptor() :
             return R.drawable.ic_night_24px
         }
     }
+
+    companion object {
+        private val TAG: String = HourlyWeatherAdapter::class.java.simpleName
+    }
+
 }

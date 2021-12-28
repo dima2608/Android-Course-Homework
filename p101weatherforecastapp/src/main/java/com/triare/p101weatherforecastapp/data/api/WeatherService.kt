@@ -1,8 +1,7 @@
-package com.triare.p101weatherforecastapp.api
+package com.triare.p101weatherforecastapp.data.api
 
-import com.triare.p101weatherforecastapp.KEY_API
-import com.triare.p101weatherforecastapp.models.CurrentDto
-import com.triare.p101weatherforecastapp.models.HourlyDto
+import com.triare.p101weatherforecastapp.data.api.model.CurrentDto
+import com.triare.p101weatherforecastapp.data.api.model.HourlyDto
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Headers

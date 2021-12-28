@@ -1,4 +1,4 @@
-package com.triare.p101weatherforecastapp.models
+package com.triare.p101weatherforecastapp.data.api.model
 
 import com.google.gson.annotations.SerializedName
 

@@ -1,4 +1,4 @@
-package com.triare.p101weatherforecastapp.storage
+package com.triare.p101weatherforecastapp.ui.model
 
 data class CurrentWeatherDvo(
     var date: String,

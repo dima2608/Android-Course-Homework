@@ -1,14 +1,14 @@
-package com.triare.p101weatherforecastapp.repository
+package com.triare.p101weatherforecastapp.data.repository
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
-import com.triare.p101weatherforecastapp.BASE_URL
+import com.triare.p101weatherforecastapp.data.api.BASE_URL
 import com.triare.p101weatherforecastapp.R
-import com.triare.p101weatherforecastapp.api.WeatherService
-import com.triare.p101weatherforecastapp.models.CurrentDto
-import com.triare.p101weatherforecastapp.models.DataItemCurrentDto
-import com.triare.p101weatherforecastapp.models.HourlyDto
-import com.triare.p101weatherforecastapp.storage.CurrentWeatherDvo
+import com.triare.p101weatherforecastapp.data.api.WeatherService
+import com.triare.p101weatherforecastapp.data.api.model.CurrentDto
+import com.triare.p101weatherforecastapp.data.api.model.DataItemCurrentDto
+import com.triare.p101weatherforecastapp.data.api.model.HourlyDto
+import com.triare.p101weatherforecastapp.ui.model.CurrentWeatherDvo
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -18,7 +18,7 @@ import java.text.DateFormat
 import java.util.*
 import kotlin.math.roundToInt
 
-class WeatherRepository() {
+class WeatherRepository {
     private val currentWeather = MutableLiveData<CurrentWeatherDvo>()
     private val hourlyWeather = MutableLiveData<HourlyDto>()
 
@@ -70,17 +70,17 @@ class WeatherRepository() {
 
         val currentWeatherService = retrofit.create(WeatherService::class.java)
 
-        currentWeatherService.getCurrent(32.05f, 49.44f, "metric")
+        currentWeatherService.getCurrent(LON, LAT, "metric")
             .enqueue(object : Callback<CurrentDto> {
                 override fun onResponse(call: Call<CurrentDto>, response: Response<CurrentDto>) {
-
+                    val body = response.body()
                     currentWeather.value = CurrentWeatherDvo(
                         date = getDate(),
-                        temp = getTemp(response.body()?.data?.get(0)),
-                        realFeel = response.body()?.let { getRealFeel(it) }.orEmpty(),
-                        wind = response.body()?.let { getWind(it) }.orEmpty(),
-                        cloudiness = response.body()?.let { getCloudiness(it) }.orEmpty(),
-                        ic_Weather = response.body()?.let { getWeatherIcon(it) }
+                        temp = getTemp(body?.data?.get(0)),
+                        realFeel = body?.let { getRealFeel(it) }.orEmpty(),
+                        wind = body?.let { getWind(it) }.orEmpty(),
+                        cloudiness = body?.let { getCloudiness(it) }.orEmpty(),
+                        ic_Weather = body?.let { getWeatherIcon(it) }
                     )
                 }
 
@@ -101,7 +101,7 @@ class WeatherRepository() {
 
         val hourlyWeatherService = retrofit.create(WeatherService::class.java)
 
-        hourlyWeatherService.getHourly(32.05f, 49.44f, 24, "metric")
+        hourlyWeatherService.getHourly(LON, LAT, 24, "metric")
             .enqueue(object : Callback<HourlyDto> {
                 override fun onResponse(call: Call<HourlyDto>, response: Response<HourlyDto>) {
                     hourlyWeather.value = response.body()
@@ -113,5 +113,10 @@ class WeatherRepository() {
                 }
             })
         return hourlyWeather
+    }
+
+    companion object {
+        private const val LON = 32.05f
+        private const val LAT = 49.44f
     }
 }
