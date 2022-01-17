@@ -4,147 +4,147 @@ import com.google.gson.annotations.SerializedName
 
 data class HourlyDto(
 
-	@field:SerializedName("country_code")
+	@SerializedName("country_code")
 	val countryCode: String,
 
-	@field:SerializedName("city_name")
+	@SerializedName("city_name")
 	val cityName: String,
 
-	@field:SerializedName("data")
+	@SerializedName("data")
 	val data: List<DataItemHourlyDto>,
 
-	@field:SerializedName("timezone")
+	@SerializedName("timezone")
 	val timezone: String,
 
-	@field:SerializedName("lon")
+	@SerializedName("lon")
 	val lon: Double,
 
-	@field:SerializedName("state_code")
+	@SerializedName("state_code")
 	val stateCode: String,
 
-	@field:SerializedName("lat")
+	@SerializedName("lat")
 	val lat: Double
 )
 
 data class DataItemHourlyDto(
 
-	@field:SerializedName("sunrise")
+	@SerializedName("sunrise")
 	val sunrise: String,
 
-	@field:SerializedName("pod")
+	@SerializedName("pod")
 	val pod: String,
 
-	@field:SerializedName("pres")
+	@SerializedName("pres")
 	val pres: Double,
 
-	@field:SerializedName("timezone")
+	@SerializedName("timezone")
 	val timezone: String,
 
-	@field:SerializedName("ob_time")
+	@SerializedName("ob_time")
 	val obTime: String,
 
-	@field:SerializedName("wind_cdir")
+	@SerializedName("wind_cdir")
 	val windCdir: String,
 
-	@field:SerializedName("lon")
+	@SerializedName("lon")
 	val lon: Double,
 
-	@field:SerializedName("clouds")
+	@SerializedName("clouds")
 	val clouds: Int,
 
-	@field:SerializedName("wind_spd")
+	@SerializedName("wind_spd")
 	val windSpd: Double,
 
-	@field:SerializedName("city_name")
+	@SerializedName("city_name")
 	val cityName: String,
 
-	@field:SerializedName("h_angle")
+	@SerializedName("h_angle")
 	val hAngle: Int,
 
-	@field:SerializedName("datetime")
+	@SerializedName("datetime")
 	val datetime: String,
 
-	@field:SerializedName("precip")
+	@SerializedName("precip")
 	val precip: Double,
 
-	@field:SerializedName("weather")
+	@SerializedName("weather")
 	val weatherHourlyDto: WeatherHourlyDto,
 
-	@field:SerializedName("station")
+	@SerializedName("station")
 	val station: String,
 
-	@field:SerializedName("elev_angle")
+	@SerializedName("elev_angle")
 	val elevAngle: Double,
 
-	@field:SerializedName("dni")
+	@SerializedName("dni")
 	val dni: Double,
 
-	@field:SerializedName("lat")
+	@SerializedName("lat")
 	val lat: Double,
 
-	@field:SerializedName("vis")
+	@SerializedName("vis")
 	val vis: Double,
 
-	@field:SerializedName("uv")
+	@SerializedName("uv")
 	val uv: Double,
 
-	@field:SerializedName("temp")
+	@SerializedName("temp")
 	val temp: Double,
 
-	@field:SerializedName("dhi")
+	@SerializedName("dhi")
 	val dhi: Double,
 
-	@field:SerializedName("ghi")
+	@SerializedName("ghi")
 	val ghi: Double,
 
-	@field:SerializedName("app_temp")
+	@SerializedName("app_temp")
 	val appTemp: Double,
 
-	@field:SerializedName("dewpt")
+	@SerializedName("dewpt")
 	val dewpt: Double,
 
-	@field:SerializedName("wind_dir")
+	@SerializedName("wind_dir")
 	val windDir: Int,
 
-	@field:SerializedName("solar_rad")
+	@SerializedName("solar_rad")
 	val solarRad: Double,
 
-	@field:SerializedName("country_code")
+	@SerializedName("country_code")
 	val countryCode: String,
 
-	@field:SerializedName("rh")
+	@SerializedName("rh")
 	val rh: Double,
 
-	@field:SerializedName("slp")
+	@SerializedName("slp")
 	val slp: Double,
 
-	@field:SerializedName("snow")
+	@SerializedName("snow")
 	val snow: Double,
 
-	@field:SerializedName("sunset")
+	@SerializedName("sunset")
 	val sunset: String,
 
-	@field:SerializedName("aqi")
+	@SerializedName("aqi")
 	val aqi: Int,
 
-	@field:SerializedName("state_code")
+	@SerializedName("state_code")
 	val stateCode: String,
 
-	@field:SerializedName("wind_cdir_full")
+	@SerializedName("wind_cdir_full")
 	val windCdirFull: String,
 
-	@field:SerializedName("ts")
+	@SerializedName("ts")
 	val ts: Int
 )
 
 data class WeatherHourlyDto(
 
-	@field:SerializedName("code")
+	@SerializedName("code")
 	val code: Int,
 
-	@field:SerializedName("icon")
+	@SerializedName("icon")
 	val icon: String,
 
-	@field:SerializedName("description")
+	@SerializedName("description")
 	val description: String
 )

@@ -1,5 +1,6 @@
-package com.triare.p101weatherforecastapp.ui.wearher
+package com.triare.p101weatherforecastapp.ui.weather
 
+import android.annotation.SuppressLint
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.triare.p101weatherforecastapp.R
 import com.triare.p101weatherforecastapp.data.api.model.DataItemHourlyDto
+import java.text.SimpleDateFormat
 
 
 class HourlyWeatherAdapter :
@@ -32,7 +34,7 @@ class HourlyWeatherAdapter :
         private val hourlyTemp = itemView.findViewById<TextView>(R.id.hourly_temp)
 
         fun bind(data: DataItemHourlyDto) {
-            time.text = data.datetime
+            time.text = getTime(data)
             hourlyTemp.text = "${data.temp} °"
             hourlyTemp.setCompoundDrawablesWithIntrinsicBounds(getWeatherIcon(data), 0, 0, 0)
         }
@@ -50,6 +52,15 @@ class HourlyWeatherAdapter :
                 } else R.drawable.ic_rain_24px
             }
             return R.drawable.ic_night_24px
+        }
+
+        private fun getTime(dto: DataItemHourlyDto): String {
+            val dataTime = dto.datetime
+            val hour = dataTime.substring(dataTime.length - 2)
+            val minute = ":00"
+            val time = hour + minute
+
+            return time
         }
     }
 

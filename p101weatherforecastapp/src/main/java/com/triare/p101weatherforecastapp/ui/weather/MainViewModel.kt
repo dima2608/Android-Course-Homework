@@ -1,4 +1,4 @@
-package com.triare.p101weatherforecastapp.ui.wearher
+package com.triare.p101weatherforecastapp.ui.weather
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
