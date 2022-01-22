@@ -1,11 +1,10 @@
-package com.triare.p102quakealertapp.splashscreen
+package com.triare.p102quakealertapp.ui.quake.splashscreen
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.triare.p102quakealertapp.MainActivity
+import com.triare.p102quakealertapp.ui.quake.MainActivity
 import com.triare.p102quakealertapp.R
 
 

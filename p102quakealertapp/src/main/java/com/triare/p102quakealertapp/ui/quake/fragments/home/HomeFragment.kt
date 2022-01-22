@@ -1,7 +1,6 @@
-package com.triare.p102quakealertapp.fragments
+package com.triare.p102quakealertapp.ui.quake.fragments.home
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,15 +9,17 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.LifecycleOwner
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.triare.p102quakealertapp.QuakeViewModel
+import com.triare.p102quakealertapp.ui.quake.fragments.model.QuakeViewModel
 import com.triare.p102quakealertapp.R
-import com.triare.p102quakealertapp.adaptor.QuakeAdaptor
-import com.triare.p102quakealertapp.model.FeaturesItem
+import com.triare.p102quakealertapp.ui.quake.fragments.home.adaptor.QuakeAdaptor
+import com.triare.p102quakealertapp.ui.quake.fragments.quake_details.RecommendationDetailsFragment
+import com.triare.p102quakealertapp.data.api.model.FeaturesItem
+import com.triare.p102quakealertapp.ui.quake.dvo.FeatureQuakeDvo
 
 class HomeFragment : Fragment(), QuakeAdaptor.OnItemClickListener {
 
     private val dataModel: QuakeViewModel by activityViewModels()
-    private var listOfQuake: List<FeaturesItem>? = null
+    private var listOfQuake: List<FeatureQuakeDvo>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,9 +40,9 @@ class HomeFragment : Fragment(), QuakeAdaptor.OnItemClickListener {
         recyclerViewStories.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
 
-        dataModel.getQuakeResultLiveData().observe(activity as LifecycleOwner, {
-            recyclerViewStories.adapter = QuakeAdaptor(it.features, this)
-            listOfQuake = it.features
+        dataModel.quakeResultLiveData.observe(activity as LifecycleOwner, {
+            recyclerViewStories.adapter = QuakeAdaptor(it,this)
+            listOfQuake = it
         })
     }
 
@@ -49,16 +50,13 @@ class HomeFragment : Fragment(), QuakeAdaptor.OnItemClickListener {
         fun newInstance() = HomeFragment()
     }
 
-    override fun onItemClick(position: Int, data: FeaturesItem) {
-        val detailsFragment = RecommendationDetailsFragment
-            .newInstance(data)
+    override fun onItemClick(position: Int, data: FeatureQuakeDvo) {
+        val detailsFragment = RecommendationDetailsFragment.newInstance(data)
         requireActivity().supportFragmentManager
             .beginTransaction()
             .replace(R.id.nav_host_fragment, detailsFragment)
             .addToBackStack("item")
             .commit()
-        Log.d("TEST1", data.toString())
-
     }
 
 }

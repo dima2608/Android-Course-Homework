@@ -6,7 +6,7 @@
     android:layout_marginStart="16dp"
     android:layout_marginTop="32dp"
     android:orientation="vertical"
-    tools:context=".fragments.AboutUsFragment">
+    tools:context=".ui.quake.fragments.about_us.AboutUsFragment">
 
     <TextView
         android:layout_width="wrap_content"

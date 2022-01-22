@@ -1,4 +1,4 @@
-package com.triare.p102quakealertapp
+package com.triare.p102quakealertapp.ui.quake
 
 import android.os.Bundle
 import android.view.MenuItem
@@ -7,19 +7,16 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
-import androidx.navigation.Navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
 import com.google.android.material.navigation.NavigationView
-import com.triare.p102quakealertapp.fragments.AboutUsFragment
-import com.triare.p102quakealertapp.fragments.HomeFragment
-import com.triare.p102quakealertapp.fragments.RecommendationFragment
+import com.triare.p102quakealertapp.R
+import com.triare.p102quakealertapp.ui.quake.fragments.about_us.AboutUsFragment
+import com.triare.p102quakealertapp.ui.quake.fragments.home.HomeFragment
+import com.triare.p102quakealertapp.ui.quake.fragments.recommendation.RecommendationFragment
 
 class MainActivity : AppCompatActivity() {
 
     private var toggle: ActionBarDrawerToggle? = null
     private var drawerLayout: DrawerLayout? = null
-    private var appBarConfiguration: AppBarConfiguration? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -74,12 +71,5 @@ class MainActivity : AppCompatActivity() {
             .replace(R.id.nav_host_fragment, HomeFragment.newInstance())
             .commit()
     }
-
-    override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(this, R.id.nav_host_fragment)
-        return navController.navigateUp(appBarConfiguration!!)
-                || super.onSupportNavigateUp()
-    }
-
 }
 

@@ -1,4 +1,4 @@
-package com.triare.p102quakealertapp.model
+package com.triare.p102quakealertapp.data.api.model
 
 import com.google.gson.annotations.SerializedName
 
@@ -14,7 +14,7 @@ data class QuakeDto(
 data class FeaturesItem(
 
 	@SerializedName("geometry")
-	val geometry: Geometry,
+	val geometry: GeometryDto,
 
 	@SerializedName("type")
 	val type: String,
@@ -47,7 +47,7 @@ data class Properties(
 	val quality: String
 ): java.io.Serializable
 
-data class Geometry(
+data class GeometryDto(
 
 	@SerializedName("coordinates")
 	val coordinates: List<Double>,

@@ -1,4 +1,4 @@
-package com.triare.p102quakealertapp.fragments
+package com.triare.p102quakealertapp.ui.quake.fragments.about_us
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.triare.p102quakealertapp.R
 
-class RecommendationFragment : Fragment() {
+class AboutUsFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,12 +18,11 @@ class RecommendationFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_recommendation, container, false)
+        return inflater.inflate(R.layout.fragment_about_us, container, false)
     }
 
     companion object {
         @JvmStatic
-        fun newInstance() = RecommendationFragment()
-
+        fun newInstance() = AboutUsFragment()
     }
 }

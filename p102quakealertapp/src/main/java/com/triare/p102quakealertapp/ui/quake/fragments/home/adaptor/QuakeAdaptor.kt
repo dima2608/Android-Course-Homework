@@ -1,22 +1,20 @@
-package com.triare.p102quakealertapp.adaptor
+package com.triare.p102quakealertapp.ui.quake.fragments.home.adaptor
 
-import android.annotation.SuppressLint
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.triare.p102quakealertapp.R
-import com.triare.p102quakealertapp.model.FeaturesItem
+import com.triare.p102quakealertapp.ui.quake.dvo.FeatureQuakeDvo
 
 
 class QuakeAdaptor(
-    private val items: List<FeaturesItem>,
+    private val items: List<FeatureQuakeDvo>,
     private val listener: OnItemClickListener
 ) :
     RecyclerView.Adapter<QuakeAdaptor.QuakeViewHolder>() {
-    //var items: List<FeaturesItem> = listOf()
+    //var items: List<FeatureQuakeDvo> = listOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): QuakeViewHolder {
         val itemView = LayoutInflater.from(parent.context)
@@ -42,14 +40,12 @@ class QuakeAdaptor(
         }
 
 
-        @SuppressLint("ResourceType")
-        fun bind(data: FeaturesItem) {
-            val intensityData = initIntensity(data.properties.magnitude)
-            time.text = data.properties.time
-            location.text = data.properties.locality
-            intensity.setText(intensityData.title)
-            intensity.setBackgroundResource(intensityData.color)
-            magnitude.text = String.format("%.2f", data.properties.magnitude)
+        fun bind(data: FeatureQuakeDvo) {
+            time.text = data.dateTime
+            location.text = data.location
+            intensity.setText(data.intensityTitle)
+            intensity.setBackgroundResource(data.intensityColor)
+            magnitude.text = data.magnitude
 
         }
 
@@ -57,24 +53,11 @@ class QuakeAdaptor(
             val position = adapterPosition
             if (position != RecyclerView.NO_POSITION) {
                 listener.onItemClick(position, data = items[position])
-                Log.d("TEST", items[position].toString())
             }
         }
     }
 
     interface OnItemClickListener {
-        fun onItemClick(position: Int, data: FeaturesItem)
-    }
-
-    companion object {
-        fun initIntensity(intensity: Double): QuakeIntensity {
-            return when (intensity) {
-                in 1.0..1.99 -> QuakeIntensity.BARELY_NOTICEABLE
-                in 2.0..2.99 -> QuakeIntensity.WEAK
-                in 3.0..3.99 -> QuakeIntensity.AVERAGE
-                in 4.0..4.99 -> QuakeIntensity.STRONG
-                else -> QuakeIntensity.VERY_STRONG
-            }
-        }
+        fun onItemClick(position: Int, data: FeatureQuakeDvo)
     }
 }

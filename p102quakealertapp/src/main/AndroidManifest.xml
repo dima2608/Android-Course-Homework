@@ -13,7 +13,7 @@
         android:theme="@style/Theme.AndroidCourseHomework">
 
         <activity
-            android:name=".splashscreen.SplashScreenActivity"
+            android:name="com.triare.p102quakealertapp.ui.quake.splashscreen.SplashScreenActivity"
             android:exported="true"
             android:theme="@style/SplashScreenTheme">
             <intent-filter>
@@ -24,7 +24,7 @@
         </activity>
 
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.quake.MainActivity"
             android:exported="true" />
 
     </application>

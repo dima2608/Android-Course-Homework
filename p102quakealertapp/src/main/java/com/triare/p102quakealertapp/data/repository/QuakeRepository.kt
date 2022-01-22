@@ -1,10 +1,13 @@
-package com.triare.p102quakealertapp
+package com.triare.p102quakealertapp.data.repository
 
 import android.util.Log
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.triare.p102quakealertapp.api.QuakeService
-import com.triare.p102quakealertapp.model.QuakeDto
+import com.triare.p102quakealertapp.data.api.BASE_URL
+import com.triare.p102quakealertapp.data.api.MMI
+import com.triare.p102quakealertapp.data.api.QuakeService
+import com.triare.p102quakealertapp.data.api.model.QuakeDto
+import com.triare.p102quakealertapp.data.mapper.FeatureQuakeMapper
+import com.triare.p102quakealertapp.ui.quake.dvo.FeatureQuakeDvo
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -12,10 +15,8 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class QuakeRepository {
-    val quakeResult = MutableLiveData<QuakeDto>()
 
-
-     fun getQuakeDto(): MutableLiveData<QuakeDto> {
+    fun getQuake(result: (List<FeatureQuakeDvo>) -> Unit) {
 
         val retrofit = Retrofit.Builder()
             .baseUrl(BASE_URL)
@@ -24,20 +25,18 @@ class QuakeRepository {
 
         val quakeService = retrofit.create(QuakeService::class.java)
 
-        quakeService.getCurrentQuakes(3).enqueue(object : Callback<QuakeDto> {
+        quakeService.getCurrentQuakes(MMI).enqueue(object : Callback<QuakeDto> {
             override fun onResponse(call: Call<QuakeDto>, response: Response<QuakeDto>) {
-                quakeResult.value = response.isSuccessful.let { response.body() }
+                if (response.isSuccessful) {
+                    response.body()?.let { result(FeatureQuakeMapper(it).map()) }
+                }
                 Log.d("RespCode", response.code().toString())
-                Log.d("INITEDinRes" ,quakeResult.value.toString())
             }
+
             override fun onFailure(call: Call<QuakeDto>, t: Throwable) {
                 Log.d("Error", "Error Quake Call")
                 t.printStackTrace()
             }
         })
-         return quakeResult
-    }
-    companion object {
-        private const val BASE_URL = "https://api.geonet.org.nz/"
     }
 }
