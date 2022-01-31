@@ -14,6 +14,9 @@ class NoteViewModel : ViewModel() {
     private var _noteListLiveData = MutableLiveData<List<NoteDvo>>()
     var noteListLiveData: LiveData<List<NoteDvo>> = _noteListLiveData
 
+    private var _tileLiveData = MutableLiveData<String>()
+    var tileLiveData: LiveData<String> = _tileLiveData
+
     fun setTitle(contentId: Long, title: String) {
         notepadRepository.setTile(contentId, title)
     }
@@ -42,6 +45,15 @@ class NoteViewModel : ViewModel() {
     }
 
     fun createNote(contentId: Long) {
+        notepadRepository.insertNote(contentId)
+    }
+
+    fun getTitle(ownerContentId: Long): MutableLiveData<String> {
+        _tileLiveData.value = notepadRepository.getTitle(ownerContentId)
+        return _tileLiveData
+    }
+
+    fun addNote(contentId: Long) {
         notepadRepository.insertNote(contentId)
     }
 }

@@ -78,4 +78,8 @@ class NotepadRepository {
     fun updateText(noteId: Long, text: String) {
         noteDao.updateText(noteId, text)
     }
+
+    fun getTitle(contentId: Long): String {
+        return contentDao.getTitle(contentId)
+    }
 }

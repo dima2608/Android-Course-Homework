@@ -18,6 +18,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.LifecycleOwner
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.triare.p151notepadapp.R
 import com.triare.p151notepadapp.ui.adaptors.ContentAdaptor
 import com.triare.p151notepadapp.ui.adaptors.NoteAdaptor
@@ -62,10 +63,22 @@ class NoteFragment : Fragment() {
         initRecyclerView()
         setupDialogFragmentListener()
 
+        val btnAddNote: FloatingActionButton = view.findViewById(R.id.btn_add_note_note)
+        btnAddNote.setOnClickListener{
+            ownerContentId?.let { contentId -> noteViewModel.createNote(contentId) }
+        }
+
     }
 
     private fun initUi() {
+
         title = view?.findViewById(R.id.edit_text_title)
+        title?.hint = "Add a title"
+        ownerContentId?.let { noteViewModel.getTitle(it) }
+        noteViewModel.tileLiveData.observe(viewLifecycleOwner, {
+            Log.d(it, "TITLE")
+            title?.setText(it)
+        })
 
         initToolbar()
     }
@@ -116,11 +129,11 @@ class NoteFragment : Fragment() {
         noteRecyclerView?.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
 
-        Log.d(ownerContentId.toString()," CONTENTid")
+        Log.d(ownerContentId.toString(), " CONTENTid")
         ownerContentId?.let { noteViewModel.getNoteDvo(it) }
         noteViewModel.noteListLiveData.observe(activity as LifecycleOwner, {
-            if (it.isNotEmpty()){
-                Log.d(it.toString()," CONTENTidList")
+            if (it.isNotEmpty()) {
+                Log.d(it.toString(), " CONTENTidList")
                 noteRecyclerView?.adapter = NoteAdaptor(it)
             }
         })
@@ -144,7 +157,7 @@ class NoteFragment : Fragment() {
             })
     }
 
-    fun setText(noteId: Long, text: String){
+    fun setText(noteId: Long, text: String) {
         noteViewModel.setTextNote(noteId, text)
     }
 
