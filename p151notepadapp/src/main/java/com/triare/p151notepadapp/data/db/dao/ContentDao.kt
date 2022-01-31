@@ -15,6 +15,9 @@ interface ContentDao {
     @Query("SELECT * FROM contents WHERE contentId = (SELECT MAX(contentId) FROM contents)")
     fun getLastContentId(): Long
 
+    @Query("SELECT title FROM contents WHERE contentId = :contentId")
+    fun getTitle(contentId: Long): String
+
     // Create
     @Insert
     fun insert(contentDbo: ContentDbo)

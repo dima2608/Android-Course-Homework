@@ -13,7 +13,7 @@ import com.triare.p151notepadapp.ui.note.NoteFragment
 
 class MainActivity : AppCompatActivity() {
 
-    private var bntAddNote: FloatingActionButton? = null
+    //private var bntAddNote: FloatingActionButton? = null
     private var mainViewModel: MainViewModel? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,13 +21,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         initUi()
-        bntAddNote?.visibility = View.VISIBLE
     }
 
     private fun initUi() {
         startContentFragment()
         initViewModel()
-        initAddNoteBtn()
+        //initAddNoteBtn()
     }
 
     private fun initViewModel() {
@@ -39,9 +38,8 @@ class MainActivity : AppCompatActivity() {
             .replace(R.id.nav_host_fragment, ContentFragment.newInstance())
             .addToBackStack("text")
             .commit()
-        bntAddNote?.visibility = View.VISIBLE
     }
-
+/*
     private fun initAddNoteBtn() {
 
         bntAddNote = findViewById(R.id.btn_add_note)
@@ -53,11 +51,13 @@ class MainActivity : AppCompatActivity() {
                 replaceFragment(NoteFragment.newInstance(it))
             })
         }
-        bntAddNote?.visibility = View.VISIBLE
+
 
     }
 
-    private fun replaceFragment(fragment: Fragment) {
+ */
+
+    fun replaceFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
             .replace(R.id.nav_host_fragment, fragment)
             .addToBackStack("test3")

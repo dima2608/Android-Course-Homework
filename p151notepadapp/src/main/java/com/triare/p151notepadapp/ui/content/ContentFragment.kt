@@ -23,7 +23,6 @@ class ContentFragment : Fragment(), ContentAdaptor.OnItemClickListener {
 
     private val contentViewModel: ContentViewModel by activityViewModels()
 
-    private var iconAddNote: ImageView? = null
     lateinit var contentRecyclerView: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,6 +39,17 @@ class ContentFragment : Fragment(), ContentAdaptor.OnItemClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initUi()
+
+        val btnAddNote: FloatingActionButton = view.findViewById(R.id.btn_add_note)
+        btnAddNote.setOnClickListener {
+            contentViewModel.createContent()
+            contentViewModel.getCreatedContentId()
+            contentViewModel.contentIdLiveData.observe(viewLifecycleOwner, {
+                (requireActivity() as MainActivity).replaceFragment(NoteFragment.newInstance(it))
+
+
+            })
+        }
     }
 
     @SuppressLint("NotifyDataSetChanged")

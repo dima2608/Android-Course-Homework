@@ -13,6 +13,9 @@ class ContentViewModel: ViewModel() {
     private var _contentListLiveData = MutableLiveData<List<ContentDvo>>()
     var contentListLiveData: LiveData<List<ContentDvo>> = _contentListLiveData
 
+    private var _contentIdLiveData = MutableLiveData<Long>()
+    var contentIdLiveData: LiveData<Long> = _contentIdLiveData
+
    init {
        getContentDvo()
    }
@@ -21,5 +24,13 @@ class ContentViewModel: ViewModel() {
         notepadRepository.getContentDvo {
             _contentListLiveData.value = it
         }
+    }
+
+    fun getCreatedContentId() {
+        _contentIdLiveData.value = notepadRepository.getLatContentId().value
+    }
+
+    fun createContent(){
+        notepadRepository.insertContent()
     }
 }
