@@ -13,6 +13,7 @@ import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.triare.p151notepadapp.R
 import com.triare.p151notepadapp.ui.MainActivity
@@ -27,6 +28,8 @@ class NoteAdaptor(
 ) : RecyclerView.Adapter<NoteAdaptor.NoteViewHolder>() {
 
     private var textNote: String? = null
+    //private val items: List<NoteDvo> = emptyList()
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoteViewHolder {
         val itemView = LayoutInflater.from(parent.context)
@@ -36,6 +39,27 @@ class NoteAdaptor(
 
     override fun onBindViewHolder(holder: NoteViewHolder, position: Int) {
         holder.bind(items[position])
+    }
+
+    class NoteItemDiffCallback(
+        private val oldContentList: List<NoteDvo>,
+        private val newContentList: List<NoteDvo>
+    ) : DiffUtil.Callback() {
+        override fun getOldListSize(): Int {
+            return oldContentList.size
+        }
+
+        override fun getNewListSize(): Int {
+            return newContentList.size
+        }
+
+        override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
+            return (oldContentList[oldItemPosition].noteId == newContentList[oldItemPosition].noteId)
+        }
+
+        override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
+            return true
+        }
     }
 
     override fun getItemCount() = items.size

@@ -1,5 +1,6 @@
 package com.triare.p151notepadapp.ui.models
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -16,11 +17,7 @@ class ContentViewModel: ViewModel() {
     private var _contentIdLiveData = MutableLiveData<Long>()
     var contentIdLiveData: LiveData<Long> = _contentIdLiveData
 
-   init {
-       getContentDvo()
-   }
-
-    private fun getContentDvo() {
+    fun getContentDvo() {
         notepadRepository.getContentDvo {
             _contentListLiveData.value = it
         }
