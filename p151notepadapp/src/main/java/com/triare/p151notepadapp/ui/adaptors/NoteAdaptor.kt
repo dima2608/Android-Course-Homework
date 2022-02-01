@@ -18,17 +18,15 @@ import androidx.recyclerview.widget.RecyclerView
 import com.triare.p151notepadapp.R
 import com.triare.p151notepadapp.ui.MainActivity
 import com.triare.p151notepadapp.ui.content.ContentFragment
+import com.triare.p151notepadapp.ui.dvo.ContentDvo
 import com.triare.p151notepadapp.ui.dvo.NoteDvo
 import com.triare.p151notepadapp.ui.note.NoteFragment
 
 
-class NoteAdaptor(
-    private val items: List<NoteDvo>
-    //private val
-) : RecyclerView.Adapter<NoteAdaptor.NoteViewHolder>() {
+class NoteAdaptor() : RecyclerView.Adapter<NoteAdaptor.NoteViewHolder>() {
 
     private var textNote: String? = null
-    //private val items: List<NoteDvo> = emptyList()
+    private var items: List<NoteDvo> = emptyList()
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoteViewHolder {
@@ -41,28 +39,40 @@ class NoteAdaptor(
         holder.bind(items[position])
     }
 
+    override fun getItemCount() = items.size
+
+    fun submitNoteList(noteList: List<NoteDvo>) {
+        val oldList = items
+        val diffResult: DiffUtil.DiffResult = DiffUtil.calculateDiff(
+            NoteItemDiffCallback(
+                oldList,
+                noteList
+            )
+        )
+        items = noteList
+        diffResult.dispatchUpdatesTo(this)
+    }
+
     class NoteItemDiffCallback(
-        private val oldContentList: List<NoteDvo>,
-        private val newContentList: List<NoteDvo>
+        private val oldNoteList: List<NoteDvo>,
+        private val newNoteList: List<NoteDvo>
     ) : DiffUtil.Callback() {
         override fun getOldListSize(): Int {
-            return oldContentList.size
+            return oldNoteList.size
         }
 
         override fun getNewListSize(): Int {
-            return newContentList.size
+            return newNoteList.size
         }
 
         override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
-            return (oldContentList[oldItemPosition].noteId == newContentList[oldItemPosition].noteId)
+            return (oldNoteList[oldItemPosition].noteId == newNoteList[oldItemPosition].noteId)
         }
 
         override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
-            return true
+            return oldNoteList[oldItemPosition].equals(newNoteList[oldItemPosition])
         }
     }
-
-    override fun getItemCount() = items.size
 
     inner class NoteViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val text = itemView.findViewById<EditText>(R.id.note_text)

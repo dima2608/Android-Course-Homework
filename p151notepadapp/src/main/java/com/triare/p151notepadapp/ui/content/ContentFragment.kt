@@ -41,9 +41,6 @@ class ContentFragment : Fragment(), ContentAdaptor.OnItemClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initUi()
-        contentViewModel.contentListLiveData.observe(activity as LifecycleOwner, {
-            Log.d("DATA1", it.toString())
-        })
 
         val btnAddNote: FloatingActionButton = view.findViewById(R.id.btn_add_note)
         btnAddNote.setOnClickListener {
@@ -62,8 +59,7 @@ class ContentFragment : Fragment(), ContentAdaptor.OnItemClickListener {
 
     private fun initUi() {
         initRecyclerView()
-
-
+        addDataSet()
     }
 
     private fun initRecyclerView() {
@@ -75,28 +71,6 @@ class ContentFragment : Fragment(), ContentAdaptor.OnItemClickListener {
             contentAdaptor = ContentAdaptor(this@ContentFragment)
             adapter = contentAdaptor
         }
-        contentViewModel.contentListLiveData.observe(activity as LifecycleOwner, {
-            Log.d("DATA_CONTENT_REC", it.toString())
-            if (it.isNotEmpty()){
-                contentAdaptor.submitContentList(it)
-                Log.d("DATA_CONTENT_REC", it.toString())
-            }
-        })
-
-
-        /*
-        contentRecyclerView = requireView().findViewById<RecyclerView>(R.id.recycler_view_content)
-        contentRecyclerView.layoutManager =
-            LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-
-        contentViewModel.contentListLiveData.observe(activity as LifecycleOwner, {
-            if (it.isNotEmpty()){
-                contentRecyclerView.adapter = ContentAdaptor(this).submitContentList(it)
-
-            }
-        })
-
-         */
     }
 
     private fun addDataSet(){

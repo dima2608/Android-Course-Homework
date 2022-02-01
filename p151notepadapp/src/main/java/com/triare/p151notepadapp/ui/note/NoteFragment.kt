@@ -32,6 +32,7 @@ class NoteFragment : Fragment() {
     private var toolbar: Toolbar? = null
     private var ownerContentId: Long? = null
     private var title: EditText? = null
+    private lateinit var noteAdaptor: NoteAdaptor
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -60,12 +61,12 @@ class NoteFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         initUi()
-        initRecyclerView()
         setupDialogFragmentListener()
 
         val btnAddNote: FloatingActionButton = view.findViewById(R.id.btn_add_note_note)
-        btnAddNote.setOnClickListener{
+        btnAddNote.setOnClickListener {
             ownerContentId?.let { contentId -> noteViewModel.createNote(contentId) }
+            addDataSet()
         }
 
     }
@@ -81,6 +82,8 @@ class NoteFragment : Fragment() {
         })
 
         initToolbar()
+        initRecyclerView()
+        addDataSet()
     }
 
     private fun initToolbar() {
@@ -126,15 +129,19 @@ class NoteFragment : Fragment() {
 
     private fun initRecyclerView() {
         val noteRecyclerView = view?.findViewById<RecyclerView>(R.id.recycler_view_note)
-        noteRecyclerView?.layoutManager =
-            LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+        noteRecyclerView?.apply {
+            layoutManager =
+                LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+            noteAdaptor = NoteAdaptor()
+            adapter = noteAdaptor
+        }
+    }
 
-        Log.d(ownerContentId.toString(), " CONTENTid")
+    private fun addDataSet(){
         ownerContentId?.let { noteViewModel.getNoteDvo(it) }
         noteViewModel.noteListLiveData.observe(activity as LifecycleOwner, {
-            if (it.isNotEmpty()) {
-                Log.d(it.toString(), " CONTENTidList")
-                noteRecyclerView?.adapter = NoteAdaptor(it)
+            if (it.isNotEmpty()){
+                noteAdaptor.submitNoteList(it.reversed())
             }
         })
     }
@@ -172,26 +179,4 @@ class NoteFragment : Fragment() {
             return noteFragment
         }
     }
-
-/*
-    @SuppressLint("NotifyDataSetChanged")
-    override fun onItemTextClick(position: Int, noteId: Long, text: String) {
-        noteViewModel.setTextNote(noteId, text)
-        ownerContentId?.let { noteViewModel.createNote(it) }
-        //noteRecyclerView.adapter?.notifyDataSetChanged()
-    }
-
-    @SuppressLint("NotifyDataSetChanged")
-    override fun onItemCompletedClick(position: Int, noteId: Long) {
-        noteViewModel.setIsCompletedNote(noteId, true)
-        //noteRecyclerView.adapter?.notifyDataSetChanged()
-    }
-
-    @SuppressLint("NotifyDataSetChanged")
-    override fun onItemBinClick(position: Int, noteId: Long) {
-        noteViewModel.deleteNote(noteId)
-        //noteRecyclerView.adapter?.notifyDataSetChanged()
-    }
-
- */
 }

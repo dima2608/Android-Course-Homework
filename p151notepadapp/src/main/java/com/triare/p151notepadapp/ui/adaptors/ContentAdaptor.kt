@@ -12,11 +12,10 @@ import com.triare.p151notepadapp.ui.dvo.ContentDvo
 import com.triare.p151notepadapp.ui.dvo.NoteDvo
 
 class ContentAdaptor(
-    //private val items: List<ContentDvo>,
     private val listener: OnItemClickListener
 ) : RecyclerView.Adapter<ContentAdaptor.ContentViewHolder>() {
 
-    private var items: List<ContentDvo> = ArrayList()
+    private var items: List<ContentDvo> = emptyList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContentViewHolder {
         val itemView = LayoutInflater.from(parent.context)
