@@ -57,11 +57,11 @@ class ContentAdaptor(
 
         override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
 
-            return (oldContentList[oldItemPosition].contentId == newContentList[oldItemPosition].contentId)
+            return (oldContentList[oldItemPosition].contentId == newContentList[newItemPosition].contentId)
         }
 
         override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
-            return oldContentList[oldItemPosition].equals(newContentList[oldItemPosition])
+            return oldContentList[oldItemPosition].equals(newContentList[newItemPosition])
         }
     }
 

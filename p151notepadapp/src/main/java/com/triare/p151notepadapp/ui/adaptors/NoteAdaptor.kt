@@ -53,6 +53,7 @@ class NoteAdaptor() : RecyclerView.Adapter<NoteAdaptor.NoteViewHolder>() {
         diffResult.dispatchUpdatesTo(this)
     }
 
+
     class NoteItemDiffCallback(
         private val oldNoteList: List<NoteDvo>,
         private val newNoteList: List<NoteDvo>
@@ -66,13 +67,15 @@ class NoteAdaptor() : RecyclerView.Adapter<NoteAdaptor.NoteViewHolder>() {
         }
 
         override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
-            return (oldNoteList[oldItemPosition].noteId == newNoteList[oldItemPosition].noteId)
+            return (oldNoteList[oldItemPosition].noteId == newNoteList[newItemPosition].noteId)
         }
 
         override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
-            return oldNoteList[oldItemPosition].equals(newNoteList[oldItemPosition])
+            return oldNoteList[oldItemPosition].equals(newNoteList[newItemPosition])
         }
     }
+
+
 
     inner class NoteViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val text = itemView.findViewById<EditText>(R.id.note_text)

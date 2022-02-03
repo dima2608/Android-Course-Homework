@@ -1,13 +1,11 @@
 package com.triare.p151notepadapp.ui.content
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.LifecycleOwner
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -19,12 +17,9 @@ import com.triare.p151notepadapp.ui.adaptors.ContentAdaptor
 import com.triare.p151notepadapp.ui.models.ContentViewModel
 import com.triare.p151notepadapp.ui.note.NoteFragment
 
-
 class ContentFragment : Fragment(), ContentAdaptor.OnItemClickListener {
 
     private val contentViewModel: ContentViewModel by activityViewModels()
-
-    //lateinit var contentRecyclerView: RecyclerView
     private lateinit var contentAdaptor: ContentAdaptor
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,6 +43,7 @@ class ContentFragment : Fragment(), ContentAdaptor.OnItemClickListener {
             contentViewModel.getCreatedContentId()
             contentViewModel.contentIdLiveData.observe(viewLifecycleOwner, {
                 (requireActivity() as MainActivity).replaceFragment(NoteFragment.newInstance(it))
+                contentViewModel.createNote(it)
             })
         }
     }

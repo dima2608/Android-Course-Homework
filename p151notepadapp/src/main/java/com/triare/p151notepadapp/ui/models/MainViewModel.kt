@@ -17,7 +17,7 @@ class MainViewModel: ViewModel() {
     }
 
     fun getCreatedContentId() {
-        _contentIdLiveData.value = notepadRepository.getLatContentId().value
+        //_contentIdLiveData.value = notepadRepository.getLatContentId().value
     }
 
     fun addNote(contentId: Long) {

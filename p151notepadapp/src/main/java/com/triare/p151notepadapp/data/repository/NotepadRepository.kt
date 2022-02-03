@@ -54,9 +54,9 @@ class NotepadRepository {
         )
     }
 
-    fun getLatContentId(): MutableLiveData<Long> {
-        lastContentId.value = contentDao.getLastContentId()
-        return lastContentId
+    fun getLatContentId(result: (Long) -> Unit){
+        result(contentDao.getLastContentId())
+        //lastContentId.value = contentDao.getLastContentId()
     }
 
     fun insertNote(ownerContentId: Long) {

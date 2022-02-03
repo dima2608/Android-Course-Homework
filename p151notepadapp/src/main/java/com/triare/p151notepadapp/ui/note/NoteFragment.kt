@@ -137,11 +137,12 @@ class NoteFragment : Fragment() {
         }
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private fun addDataSet(){
         ownerContentId?.let { noteViewModel.getNoteDvo(it) }
         noteViewModel.noteListLiveData.observe(activity as LifecycleOwner, {
             if (it.isNotEmpty()){
-                noteAdaptor.submitNoteList(it.reversed())
+                noteAdaptor.submitNoteList(it)
             }
         })
     }
