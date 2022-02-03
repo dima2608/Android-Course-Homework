@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">p151notepadapp</string>
+    <string name="to_dos">To-Dos</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title">Title</string>
+    <string name="add_a_note">add a note</string>
+    <string name="trash_bin">trash bin</string>
+    <string name="done">done</string>
+</resources>
