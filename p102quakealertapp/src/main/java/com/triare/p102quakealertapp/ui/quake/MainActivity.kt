@@ -1,7 +1,9 @@
 package com.triare.p102quakealertapp.ui.quake
 
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
+import android.widget.ImageView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -24,20 +26,33 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         initUi()
-
     }
 
     private fun initUi() {
+        initToolbar()
+        initDrawer()
+        setUpNavView()
+        startHomeFragment()
+    }
+
+    private fun initToolbar() {
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
+    }
+
+    private fun initMap(){
+        val btnMap = findViewById<ImageView>(R.id.ic_map)
+        btnMap.setOnClickListener {
+
+        }
+    }
+
+    private fun initDrawer() {
         drawerLayout = findViewById(R.id.drawer_layout)
         toggle = ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)
         drawerLayout?.addDrawerListener(toggle!!)
         toggle?.syncState()
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
-        setUpNavView()
-        startHomeFragment()
     }
 
     private fun setUpNavView() {
