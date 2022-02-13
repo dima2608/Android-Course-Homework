@@ -9,12 +9,11 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.LifecycleOwner
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.triare.p102quakealertapp.ui.quake.fragments.model.QuakeViewModel
+import com.triare.p102quakealertapp.ui.model.QuakeViewModel
 import com.triare.p102quakealertapp.R
 import com.triare.p102quakealertapp.ui.quake.fragments.home.adaptor.QuakeAdaptor
 import com.triare.p102quakealertapp.ui.quake.fragments.quake_details.RecommendationDetailsFragment
-import com.triare.p102quakealertapp.data.api.model.FeaturesItem
-import com.triare.p102quakealertapp.ui.quake.dvo.FeatureQuakeDvo
+import com.triare.p102quakealertapp.ui.dvo.FeatureQuakeDvo
 
 class HomeFragment : Fragment(), QuakeAdaptor.OnItemClickListener {
 

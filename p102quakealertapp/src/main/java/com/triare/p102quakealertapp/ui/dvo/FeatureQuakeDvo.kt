@@ -1,4 +1,4 @@
-package com.triare.p102quakealertapp.ui.quake.dvo
+package com.triare.p102quakealertapp.ui.dvo
 
 import android.os.Parcelable
 import androidx.annotation.ColorRes

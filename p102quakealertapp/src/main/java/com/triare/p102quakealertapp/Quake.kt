@@ -25,6 +25,15 @@ enum class QuakeIntensity {
             VERY_STRONG -> R.color.red
         }
 
+    val mapMarkers: Int
+        get() = when(this) {
+            BARELY_NOTICEABLE -> R.drawable.map_marker_green
+            WEAK -> R.drawable.map_marker_blue
+            AVERAGE -> R.drawable.map_marker_yellow
+            STRONG -> R.drawable.map_marker_orange
+            VERY_STRONG -> R.drawable.map_marker_red
+        }
+
     companion object {
         fun getIntensity(intensity: Double): QuakeIntensity {
             return when (intensity) {

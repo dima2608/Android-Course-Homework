@@ -1,8 +1,10 @@
 package com.triare.p102quakealertapp.ui.quake
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
+import android.view.View
 import android.widget.ImageView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
@@ -11,6 +13,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import com.google.android.material.navigation.NavigationView
 import com.triare.p102quakealertapp.R
+import com.triare.p102quakealertapp.ui.maps.MapsActivity
 import com.triare.p102quakealertapp.ui.quake.fragments.about_us.AboutUsFragment
 import com.triare.p102quakealertapp.ui.quake.fragments.home.HomeFragment
 import com.triare.p102quakealertapp.ui.quake.fragments.recommendation.RecommendationFragment
@@ -19,6 +22,7 @@ class MainActivity : AppCompatActivity() {
 
     private var toggle: ActionBarDrawerToggle? = null
     private var drawerLayout: DrawerLayout? = null
+    private var toolbar: Toolbar? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -30,20 +34,22 @@ class MainActivity : AppCompatActivity() {
 
     private fun initUi() {
         initToolbar()
+        initMap()
         initDrawer()
         setUpNavView()
         startHomeFragment()
     }
 
     private fun initToolbar() {
-        val toolbar: Toolbar = findViewById(R.id.toolbar)
+        toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
     }
 
     private fun initMap(){
         val btnMap = findViewById<ImageView>(R.id.ic_map)
         btnMap.setOnClickListener {
-
+            val intent = Intent(this, MapsActivity::class.java)
+            startActivity(intent)
         }
     }
 

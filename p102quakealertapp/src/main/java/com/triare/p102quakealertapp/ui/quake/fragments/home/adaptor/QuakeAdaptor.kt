@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.triare.p102quakealertapp.R
-import com.triare.p102quakealertapp.ui.quake.dvo.FeatureQuakeDvo
+import com.triare.p102quakealertapp.ui.dvo.FeatureQuakeDvo
 
 
 class QuakeAdaptor(

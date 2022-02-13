@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_homeFragment_to_recommendationDetailsFragment2"
             app:destination="@id/recommendationDetailsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_mapsFragment"
+            app:destination="@id/mapsFragment" />
     </fragment>
     <fragment
         android:id="@+id/recommendationFragment"
@@ -35,4 +38,9 @@
         android:name="com.triare.p102quakealertapp.ui.quake.fragments.quake_details.RecommendationDetailsFragment"
         android:label="fragment_recommendation_details"
         tools:layout="@layout/fragment_recommendation_details" />
+    <fragment
+        android:id="@+id/mapsFragment"
+        android:name="com.triare.p102quakealertapp.ui.quake.fragments.map.MapsFragment"
+        android:label="fragment_maps"
+        tools:layout="@layout/fragment_maps" />
 </navigation>

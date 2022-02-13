@@ -1,4 +1,4 @@
-package com.triare.p102quakealertapp.ui.quake.splashscreen
+package com.triare.p102quakealertapp.ui.splashscreen
 
 import android.content.Intent
 import android.os.Bundle

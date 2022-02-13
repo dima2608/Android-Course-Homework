@@ -9,8 +9,7 @@ import android.widget.TextView
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import com.triare.p102quakealertapp.R
-import com.triare.p102quakealertapp.data.api.model.FeaturesItem
-import com.triare.p102quakealertapp.ui.quake.dvo.FeatureQuakeDvo
+import com.triare.p102quakealertapp.ui.dvo.FeatureQuakeDvo
 
 class RecommendationDetailsFragment : Fragment() {
 

@@ -1,11 +1,10 @@
-package com.triare.p102quakealertapp.ui.quake.fragments.model
+package com.triare.p102quakealertapp.ui.model
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.triare.p102quakealertapp.data.repository.QuakeRepository
-import com.triare.p102quakealertapp.data.api.model.QuakeDto
-import com.triare.p102quakealertapp.ui.quake.dvo.FeatureQuakeDvo
+import com.triare.p102quakealertapp.ui.dvo.FeatureQuakeDvo
 
 class QuakeViewModel : ViewModel() {
 
@@ -15,10 +14,10 @@ class QuakeViewModel : ViewModel() {
     val quakeResultLiveData: LiveData<List<FeatureQuakeDvo>> = _quakeResultLiveData
 
     init {
-        qetFeatureQuake()
+        getFeatureQuake()
     }
 
-    private fun qetFeatureQuake() {
+    private fun getFeatureQuake() {
         quakeRepository.getQuake {
             _quakeResultLiveData.value = it
         }
